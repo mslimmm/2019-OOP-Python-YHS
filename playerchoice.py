@@ -22,15 +22,18 @@
                    (-1,3)
                    (-2,3)
 (2,3)       (-1,4)         (-2,4)       (0,2)
-#
+
 
 (2,4)   (-1,5)                 (-2,5)   (0,1)
 
 (3,0)   (3,1)   (3,2)   (3,3)   (3,4)   (0,0) (4,0)
 """
 
-
+import PygamePrint
 import PlayerClass
+import pygame, sys, random
+from pygame.locals import *
+import os
 def actplayer(Player):
     number = Player.onmapno
     x = ''
@@ -41,6 +44,7 @@ def actplayer(Player):
         input(x)
     move = int(x)
     PlayerClass.player.move(Player.egglist[move], movecnt)
+
 
 
 
