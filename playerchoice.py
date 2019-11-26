@@ -31,7 +31,7 @@
 
 
 import PlayerClass
-def playerchoice(Player):
+def actplayer(Player):
     number = Player.onmapno
     x = ''
     print("움직이고 싶은 말의 번호를 움직여 주세요")

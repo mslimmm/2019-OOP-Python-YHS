@@ -1,7 +1,6 @@
 import pygame
 import random
 import PlayerClass
-
 """
 업기
 잡기
@@ -124,5 +123,4 @@ else:
 while True:
     print("플레이어")
     actcom(Player,Computer)
-
 
