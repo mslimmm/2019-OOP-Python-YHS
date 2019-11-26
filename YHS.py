@@ -97,8 +97,9 @@ def actcom(com, play):
                 run = True
                 print("컴퓨터가 당신의 말을 잡았습니다!")
 
-        for i in range(com.onmapno):
-            print("컴퓨터의", i + 1, "번째 알의 위치 : ", com.onmap[i].x, com.onmap[i].y)
+        for i in range(4):
+            if com.egglist[i] in com.onmap:
+                print("컴퓨터의", i + 1, "번째 알의 위치 : ", com.egglist[i].x, com.egglist[i].y)
 
         if run == True:
             print("컴퓨터가 한번 더 던집니다.")
@@ -117,6 +118,7 @@ else:
     print("당신이 선공입니다.")
 
 while True:
-    print("플레이어")
-    actcom(Player,Computer)
-
+    actcom(Computer,Player)
+    if Computer.fineggno == 4:
+        print("컴퓨터가 이겼습니다!")
+        break
