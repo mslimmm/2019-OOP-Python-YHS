@@ -1,6 +1,7 @@
 import pygame
 import random
 import PlayerClass
+import playerchoice
 
 """
 업기
@@ -64,8 +65,7 @@ def actcom(com, play):
         randomlist = []
 
         for i in range(4):
-            if com.egglist[i] in com.onmap:
-
+            if
             randomlist.append(i)
 
         random.shuffle(randomlist)
@@ -86,7 +86,7 @@ def actcom(com, play):
                 i.x = 0
                 i.y = 0
                 i.carrying = 1
-                play.onmap.remove(i)    
+                play.onmap.remove(i)
                 play.onmapno -= 1
                 run = True
                 print("컴퓨터가 당신의 말을 잡았습니다!")
@@ -107,12 +107,12 @@ random.shuffle(order)
 if order[0] == 'second':
     print("컴퓨터가 선공입니다.")
     actcom(Computer, Player)
-
 else:
     print("당신이 선공입니다.")
 
 while True:
     print("플레이어")
     actcom(Player,Computer)
+    actplayer(Player)
 
 
