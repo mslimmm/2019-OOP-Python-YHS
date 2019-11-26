@@ -1,5 +1,6 @@
 import pygame
 import random
+import PlayerClass
 
 """
 업기
@@ -25,50 +26,12 @@ import random
                    (-1,3)
                    (-2,3)
 (2,3)       (-1,4)         (-2,4)       (0,2)
-
+#
 
 (2,4)   (-1,5)                 (-2,5)   (0,1)
 
 (3,0)   (3,1)   (3,2)   (3,3)   (3,4)   (0,0) (4,0)
 """
-class player:
-
-    class egg:
-        def __init__(self):
-            self.x = 0
-            self.y = 0
-            self.carrying = 1
-            self.finished = 0
-
-        def move(self, movecnt):
-            for i in range(movecnt):
-                self.y += 1
-                if 0 <= self.x <= 3 and self.y == 5:
-                    self.y = 0
-                    self.x += 1
-                elif self.x == -1 and self.y == 6:
-                    self.y = 0
-                    self.x = 3
-                elif self.x == -2 and self.y == 6:
-                    self.y = 0
-                    self.x = 4
-
-        def finish(self):
-            self.finished = 1
-            print("완주")
-
-    def __init__(self):
-        self.egg1 = self.egg()
-        self.egg2 = self.egg()
-        self.egg3 = self.egg()
-        self.egg4 = self.egg()
-        self.egglist = [self.egg1, self.egg2, self.egg3, self.egg4]
-        self.onmap = []
-        self.onmapno = 0
-        self.finegg = []
-        self.fineggno = 0
-
-
 
 def wherego():
     mvcnt = 0
@@ -121,7 +84,7 @@ def actcom(com, play):
                 i.x = 0
                 i.y = 0
                 i.carrying = 1
-                play.onmap.remove(i)
+                play.onmap.remove(i)    
                 play.onmapno -= 1
                 run = True
                 print("컴퓨터가 당신의 말을 잡았습니다!")
@@ -132,8 +95,9 @@ def actcom(com, play):
         if run == True:
             print("컴퓨터가 한번 더 던집니다.")
 
-Player = player()
-Computer = player()
+
+Player = PlayerClass.player()
+Computer = PlayerClass.player()
 
 order = ['first','second']
 random.shuffle(order)
