@@ -3,7 +3,7 @@ class player: #컴퓨터와 플레이어
         def __init__(self):
             self.x = 0
             self.y = 0
-            self.carrying = 1
+            self.carrying_egg = []
 
         def move(self, movecnt):
 
@@ -28,6 +28,11 @@ class player: #컴퓨터와 플레이어
 
                 if self.x == 4 and self.y > 0:
                     break
+
+            for i in self.carrying_egg:
+                self.carrying_egg.x = self.x
+                self.carrying_egg.y = self.y
+
 
     def __init__(self):
         self.egglist = [self.egg(), self.egg(), self.egg(), self.egg()]
