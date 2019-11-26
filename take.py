@@ -33,10 +33,7 @@
 import PlayerClass
 a = PlayerClass.player()
 direction = ''
-def take():
-    if a.egg.x == 0 and a.egg.y == 0:
-        print("대각선 : 1, 위 : 0 입력")
-        input(direction)
-        if direction == '1':
+def playerchoice():
+    print("")
 
 
