@@ -49,6 +49,7 @@ def wherego():
     return mvcnt
 
 def actcom(com, play):
+
     print("컴퓨터의 차례")
 
     run = True
