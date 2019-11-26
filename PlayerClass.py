@@ -27,7 +27,7 @@ class player:
                     self.y = 0
                     self.x = 4
 
-                if self.x == 4:
+                if self.x == 4 and self.y > 0:
                     break
 
         def finish(self):
