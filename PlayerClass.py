@@ -1,5 +1,5 @@
 class player: #컴퓨터와 플레이어
-    class egg:
+    class egg: #가지고 있는 알의 특성
         def __init__(self):
             self.x = 0
             self.y = 0
