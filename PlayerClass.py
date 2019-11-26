@@ -10,7 +10,7 @@ class player:
 
             if self.x == 1 and self.y == 0:
                 self.x = -1
-            elif self.y == 2 and self.y == 0:
+            elif self.x == 2 and self.y == 0:
                 self.x = -2
             elif self.x == -1 and self.y == 3:
                 self.x = -2
@@ -27,6 +27,8 @@ class player:
                     self.y = 0
                     self.x = 4
 
+                if self.x == 4:
+                    break
 
         def finish(self):
             self.finished = 1
