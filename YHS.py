@@ -1,14 +1,10 @@
 import pygame
 import random
 import PlayerClass
+import PygamePrint
 """
 업기
-잡기
-4개
-팀 2개
-스페이스 ->
-방향 선택
-
+스페이스
 도 1
 개 2
 걸 3
@@ -53,6 +49,7 @@ def wherego():
     return mvcnt
 
 def actcom(com, play):
+
     print("컴퓨터의 차례")
 
     run = True
@@ -92,7 +89,7 @@ def actcom(com, play):
             com.fineggno += 1
 
         for i in play.onmap:
-            if i.x == com.egglist[randomlist[0]].x and i.y == com.egglist[randomlist[0]].y:
+            if i.x == moving_egg.x and i.y == moving_egg.y:
                 i.x = 0
                 i.y = 0
                 i.carrying = 1
@@ -101,8 +98,9 @@ def actcom(com, play):
                 run = True
                 print("컴퓨터가 당신의 말을 잡았습니다!")
 
-        for i in range(com.onmapno):
-            print("컴퓨터의", i + 1, "번째 알의 위치 : ", com.onmap[i].x, com.onmap[i].y)
+        for i in range(4):
+            if com.egglist[i] in com.onmap:
+                print("컴퓨터의", i + 1, "번째 알의 위치 : ", com.egglist[i].x, com.egglist[i].y)
 
         if run == True:
             print("컴퓨터가 한번 더 던집니다.")
@@ -121,6 +119,7 @@ else:
     print("당신이 선공입니다.")
 
 while True:
-    print("플레이어")
-    actcom(Player,Computer)
-
+    actcom(Computer,Player)
+    if Computer.fineggno == 4:
+        print("컴퓨터가 이겼습니다!")
+        break
