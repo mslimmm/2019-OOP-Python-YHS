@@ -124,6 +124,6 @@ else:
 while True:
     print("플레이어")
     actcom(Player,Computer)
-    actplayer(Player)
+    playerchoice.actplayer(Player)
 
 
