@@ -31,6 +31,7 @@ clock = pygame.time.Clock()
 
 sp_image = pygame.image.load("images/small_point.png")
 bp_image = pygame.image.load("images/big_point.png")
+
 def find_loc(x, y):
     if x == 0:
         return (board_len / 2, -board_len / 2 + board_len * y / 5)
