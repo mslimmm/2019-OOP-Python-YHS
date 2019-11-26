@@ -1,8 +1,6 @@
 import pygame
 import random
 import PlayerClass
-import playerchoice
-
 """
 업기
 잡기
@@ -65,8 +63,13 @@ def actcom(com, play):
         randomlist = []
 
         for i in range(4):
-            if
-            randomlist.append(i)
+            if com.egglist[i] in com.onmap:
+                randomlist.append(i)
+
+        for i in range(4):
+            if com.egglist[i] not in com.onmap and com.egglist[i] not in com.finegg:
+                randomlist.append(i)
+                break
 
         random.shuffle(randomlist)
 
@@ -75,11 +78,18 @@ def actcom(com, play):
         if movecnt == 4 or movecnt == 5:
             run = True
 
-        com.egglist[randomlist[0]].move(movecnt)
+        moving_egg = com.egglist[randomlist[0]]
+        moving_egg.move(movecnt)
 
-        if randomlist[0] == com.onmapno:
-            com.onmap.append(com.egglist[randomlist[0]])
+        if moving_egg not in com.onmap:
+            com.onmap.append(moving_egg)
             com.onmapno += 1
+
+        if moving_egg.x == 4 and moving_egg.y > 0:
+            com.onmap.remove(moving_egg)
+            com.onmapno -= 1
+            com.finegg.append(moving_egg)
+            com.fineggno += 1
 
         for i in play.onmap:
             if i.x == com.egglist[randomlist[0]].x and i.y == com.egglist[randomlist[0]].y:
@@ -113,6 +123,4 @@ else:
 while True:
     print("플레이어")
     actcom(Player,Computer)
-    actplayer(Player)
-
 

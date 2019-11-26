@@ -31,11 +31,18 @@
 
 
 import PlayerClass
-a = PlayerClass.player()
-direction = ''
-def playerchoice(player):
-    print("다시 하시겠습니까?")
-    if player.onmapno == 4:
+def actplayer(Player):
+    number = Player.onmapno
+    x = ''
+    print("움직이고 싶은 말의 번호를 움직여 주세요")
+    input(x)
+    while int(x) >= 4 or int(x) < 0:
+        print("다시 입력해주세요")
+        input(x)
+    move = int(x)
+    PlayerClass.player.move(Player.egglist[move], movecnt)
+
+
 
 
 
