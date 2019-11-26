@@ -1,4 +1,4 @@
-class player:
+class player: #컴퓨터와 플레이어
     class egg:
         def __init__(self):
             self.x = 0
