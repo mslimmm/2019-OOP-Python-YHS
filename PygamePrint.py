@@ -75,30 +75,30 @@ def blit_center(image, tuple):
 
 def find_coord(tuple):
     x, y = tuple
-    return (x + screen_x / 2, y + screen_y / 2)
+    return (x + screen_x / 2, screen_y / 2 - y)
 
-screen.fill((255, 255, 255))
+def print_board():
+    for i in range(0, 4):
+        for j in range(0, 5):
+            image = sp_image
+            if j == 0:
+                image = bp_image
+            blit_center(image, find_coord(find_loc(i, j)))
 
-for i in range(0, 4):
-    for j in range(0, 5):
-        image = sp_image
-        if j == 0:
-            image = bp_image
-        blit_center(image, find_coord(find_loc(i, j)))
-
-for i in range (-1, -3, -1):
-    for j in range(1, 6):
-        image = sp_image
-        if j == 3:
-            image = bp_image
-        blit_center(image, find_coord(find_loc(i, j)))
+    for i in range(-1, -3, -1):
+        for j in range(1, 6):
+            image = sp_image
+            if j == 3:
+                image = bp_image
+            blit_center(image, find_coord(find_loc(i, j)))
 
 Player = PlayerClass.player()
 
 while True:
     pygame.time.delay(1000)
+    screen.fill((255, 255, 255))
+    print_board()
+    blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))
     mvcnt = wherego()
     Player.egglist[0].move(mvcnt)
-    blit_center(egg_1_image, find_coord((Player.egglist[0].x, Player.egglist[0].y)))
-    print((Player.egglist[0].x, Player.egglist[0].y))
     pygame.display.update()
