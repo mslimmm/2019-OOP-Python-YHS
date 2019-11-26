@@ -33,25 +33,48 @@ clock = pygame.time.Clock()
 sp_image = pygame.image.load("images/small_point.png")
 bp_image = pygame.image.load("images/big_point.png")
 egg_1_image = pygame.image.load("images/egg_1.png")
+yut_0_image = pygame.image.load("images/yut_0.png")
+yut_1_image = pygame.image.load("images/yut_1.png")
+do_image = pygame.image.load("images/do.png")
+gae_image = pygame.image.load("images/gae.png")
+girl_image = pygame.image.load("images/girl.png")
+yut_image = pygame.image.load("images/yut.png")
+mo_image = pygame.image.load("images/mo.png")
+wood_image = pygame.image.load("images/wood.png")
+
+yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
 
 def wherego():
     mvcnt = 0
     for i in range(4):
         x = random.randint(0,1)
+        image = yut_0_image
+        if(x == 1):
+            image = yut_1_image
+        blit_center(image, find_coord(yut_loc[i]))
+        pygame.display.update()
+        pygame.time.delay(300)
         mvcnt += x
 
+    pygame.time.delay(500)
     if mvcnt == 1:
-        print("도")
+        blit_center(do_image, find_coord((0, 0)))
+        pygame.display.update()
     elif mvcnt == 2:
-        print("개")
+        blit_center(gae_image, find_coord((0, 0)))
+        pygame.display.update()
     elif mvcnt == 3:
-        print("걸")
+        blit_center(girl_image, find_coord((0, 0)))
+        pygame.display.update()
     elif mvcnt == 4:
-        print("윷")
+        blit_center(yut_image, find_coord((0, 0)))
+        pygame.display.update()
     else:
-        print("모")
+        blit_center(mo_image, find_coord((0, 0)))
+        pygame.display.update()
         mvcnt = 5
 
+    pygame.time.delay(300)
     return mvcnt
 
 def find_loc(x, y):
@@ -95,10 +118,18 @@ def print_board():
 Player = PlayerClass.player()
 
 while True:
-    pygame.time.delay(1000)
-    screen.fill((255, 255, 255))
+    blit_center(wood_image, find_coord((0, 0)))
     print_board()
     blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))
+    pygame.display.update()
+    pygame.time.delay(500)
     mvcnt = wherego()
+    pygame.time.delay(500)
+    blit_center(wood_image, find_coord((0, 0)))
+    print_board()
+    blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))
+    pygame.display.update()
+    pygame.time.delay(500)
     Player.egglist[0].move(mvcnt)
+    blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))
     pygame.display.update()
