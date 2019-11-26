@@ -33,7 +33,9 @@
 import PlayerClass
 a = PlayerClass.player()
 direction = ''
-def playerchoice():
-    print("")
+def playerchoice(player):
+    print("다시 하시겠습니까?")
+    if player.onmapno == 4:
+
 
 
