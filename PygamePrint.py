@@ -17,7 +17,6 @@
 """
 import pygame, sys, random
 from pygame.locals import *
-import PlayerClass
 import os
 
 os.environ['SDL_VIDEO_CENTERED'] = '0'
@@ -115,9 +114,7 @@ def print_board():
                 image = bp_image
             blit_center(image, find_coord(find_loc(i, j)))
 
-Player = PlayerClass.player()
-
-while True:
+def turn(Player):
     blit_center(wood_image, find_coord((0, 0)))
     print_board()
     blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))

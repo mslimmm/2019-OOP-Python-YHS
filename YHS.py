@@ -1,14 +1,10 @@
 import pygame
 import random
 import PlayerClass
+import PygamePrint
 """
 업기
-잡기
-4개
-팀 2개
-스페이스 ->
-방향 선택
-
+스페이스
 도 1
 개 2
 걸 3
@@ -92,7 +88,7 @@ def actcom(com, play):
             com.fineggno += 1
 
         for i in play.onmap:
-            if i.x == com.egglist[randomlist[0]].x and i.y == com.egglist[randomlist[0]].y:
+            if i.x == moving_egg.x and i.y == moving_egg.y:
                 i.x = 0
                 i.y = 0
                 i.carrying = 1
