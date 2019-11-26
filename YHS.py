@@ -63,7 +63,8 @@ def actcom(com, play):
 
         randomlist = []
 
-        for i in range(min(com.onmapno + 1, 3)):
+        for i in range(4):
+            if
             randomlist.append(i)
 
         random.shuffle(randomlist)
@@ -84,7 +85,7 @@ def actcom(com, play):
                 i.x = 0
                 i.y = 0
                 i.carrying = 1
-                play.onmap.remove(i)    
+                play.onmap.remove(i)
                 play.onmapno -= 1
                 run = True
                 print("컴퓨터가 당신의 말을 잡았습니다!")

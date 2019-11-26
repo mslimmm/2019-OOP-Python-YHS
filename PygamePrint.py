@@ -17,6 +17,7 @@
 """
 import pygame, sys, random
 from pygame.locals import *
+import PlayerClass
 import os
 
 os.environ['SDL_VIDEO_CENTERED'] = '0'
@@ -31,6 +32,27 @@ clock = pygame.time.Clock()
 
 sp_image = pygame.image.load("images/small_point.png")
 bp_image = pygame.image.load("images/big_point.png")
+egg_1_image = pygame.image.load("images/egg_1.png")
+
+def wherego():
+    mvcnt = 0
+    for i in range(4):
+        x = random.randint(0,1)
+        mvcnt += x
+
+    if mvcnt == 1:
+        print("도")
+    elif mvcnt == 2:
+        print("개")
+    elif mvcnt == 3:
+        print("걸")
+    elif mvcnt == 4:
+        print("윷")
+    else:
+        print("모")
+        mvcnt = 5
+
+    return mvcnt
 
 def find_loc(x, y):
     if x == 0:
@@ -71,5 +93,12 @@ for i in range (-1, -3, -1):
             image = bp_image
         blit_center(image, find_coord(find_loc(i, j)))
 
+Player = PlayerClass.player()
+
 while True:
+    pygame.time.delay(1000)
+    mvcnt = wherego()
+    Player.egglist[0].move(mvcnt)
+    blit_center(egg_1_image, find_coord((Player.egglist[0].x, Player.egglist[0].y)))
+    print((Player.egglist[0].x, Player.egglist[0].y))
     pygame.display.update()
