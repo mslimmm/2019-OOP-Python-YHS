@@ -63,7 +63,9 @@ def actcom(com, play):
 
         randomlist = []
 
-        for i in range(min(com.onmapno + 1, 3)):
+        for i in range(4):
+            if com.egglist[i] in com.onmap:
+
             randomlist.append(i)
 
         random.shuffle(randomlist)
@@ -105,6 +107,7 @@ random.shuffle(order)
 if order[0] == 'second':
     print("컴퓨터가 선공입니다.")
     actcom(Computer, Player)
+
 else:
     print("당신이 선공입니다.")
 
