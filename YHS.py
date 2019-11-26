@@ -1,7 +1,6 @@
 import pygame
 import random
 import PlayerClass
-import playerchoice
 
 """
 업기
@@ -125,6 +124,5 @@ else:
 while True:
     print("플레이어")
     actcom(Player,Computer)
-    playerchoice.actplayer(Player)
 
 
