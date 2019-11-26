@@ -7,6 +7,14 @@ class player:
             self.finished = 0
 
         def move(self, movecnt):
+
+            if self.x == 1 and self.y == 0:
+                self.x = -1
+            elif self.y == 2 and self.y == 0:
+                self.x = -2
+            elif self.x == -1 and self.y == 3:
+                self.x = -2
+
             for i in range(movecnt):
                 self.y += 1
                 if 0 <= self.x <= 3 and self.y == 5:
@@ -18,6 +26,7 @@ class player:
                 elif self.x == -2 and self.y == 6:
                     self.y = 0
                     self.x = 4
+
 
         def finish(self):
             self.finished = 1
