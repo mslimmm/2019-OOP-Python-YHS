@@ -31,19 +31,17 @@
 
 
 import PlayerClass
-def playerchoice(player):
-    number = player.onmapno
+def playerchoice(Player):
+    number = Player.onmapno
     x = ''
-    if number == 4:
-        print("움직이고 싶은 말의 번호를 움직여 주세요")
+    print("움직이고 싶은 말의 번호를 움직여 주세요")
+    input(x)
+    while int(x) >= 4 or int(x) < 0:
+        print("다시 입력해주세요")
         input(x)
-        while int(x)>=4 or int(x)<0:
-            print("다시 입력해주세요")
-            input(x)
-        move = int(x)
-        player.egglist[move]
-    else:
-        print("")
+    move = int(x)
+    PlayerClass.player.move(Player.egglist[move], movecnt)
+
 
 
 
