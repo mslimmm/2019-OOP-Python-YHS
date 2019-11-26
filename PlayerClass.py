@@ -4,7 +4,6 @@ class player:
             self.x = 0
             self.y = 0
             self.carrying = 1
-            self.finished = 0
 
         def move(self, movecnt):
 
@@ -29,10 +28,6 @@ class player:
 
                 if self.x == 4 and self.y > 0:
                     break
-
-        def finish(self):
-            self.finished = 1
-            print("완주")
 
     def __init__(self):
         self.egglist = [self.egg(), self.egg(), self.egg(), self.egg()]

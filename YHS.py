@@ -87,11 +87,12 @@ def actcom(com, play):
             com.onmap.append(moving_egg)
             com.onmapno += 1
 
-        if moving_egg.x == 4:
+        if moving_egg.x == 4 and moving_egg.y > 0:
             com.onmap.remove(moving_egg)
             com.onmapno -= 1
             com.finegg.append(moving_egg)
             com.fineggno += 1
+
         for i in play.onmap:
             if i.x == com.egglist[randomlist[0]].x and i.y == com.egglist[randomlist[0]].y:
                 i.x = 0
