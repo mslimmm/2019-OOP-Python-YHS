@@ -1,3 +1,4 @@
+import PygamePrint as pp
 class player: #컴퓨터와 플레이어
     class egg: #가지고 있는 알의 특성
         def __init__(self):
@@ -5,6 +6,8 @@ class player: #컴퓨터와 플레이어
             self.y = 0
             self.carrying_egg = []
             self.carrying = 1
+            self.image = pp.haitai_1_image
+
 
         def move(self, movecnt):
 
@@ -60,3 +63,15 @@ class player: #컴퓨터와 플레이어
         egg1.carrying += 1
         egg2.carrying_egg.append(egg1)
         egg2.carrying += 1
+        if egg1.carrying == 1:
+            egg1.image = pp.haitai_1_image
+            egg2.image = pp.haitai_1_image
+        if egg1.carrying == 2:
+            egg1.image = pp.haitai_2_image
+            egg2.image = pp.haitai_2_image
+        if egg1.carrying == 3:
+            egg1.image = pp.haitai_3_image
+            egg2.image = pp.haitai_3_image
+        if egg1.carrying == 4:
+            egg1.image = pp.haitai_4_image
+            egg2.image = pp.haitai_4_image

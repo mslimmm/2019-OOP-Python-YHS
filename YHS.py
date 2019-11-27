@@ -75,11 +75,11 @@ def actcom(com, play):
 
     while run:
         run = False
-        pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+        pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
         pp.print_board()
         for i in range(4):
             if com.egglist[i] in com.onmap:
-                pp.blit_center(pp.egg_1_image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+                pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
         pygame.display.update()
         pygame.time.delay(500)
         randomlist = []
@@ -97,11 +97,11 @@ def actcom(com, play):
 
         movecnt = wherego()
 
-        pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+        pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
         pp.print_board()
         for i in range(4):
             if com.egglist[i] in com.onmap:
-                pp.blit_center(pp.egg_1_image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+                pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
         pygame.display.update()
 
         if movecnt == 4 or movecnt == 5:
@@ -136,11 +136,12 @@ def actcom(com, play):
                 com.make_carry(i,moving_egg)
                 print("컴퓨터가 말을 업었습니다.")
 
-        pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+
+        pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
         pp.print_board()
         for i in range(4):
             if com.egglist[i] in com.onmap:
-                pp.blit_center(pp.egg_1_image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+                pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
 
         pygame.display.update()
         pygame.time.delay(500)
@@ -164,7 +165,7 @@ if order[0] == 'second':
 else:
     print("당신이 선공입니다.")
 
-pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
 pp.print_board()
 pygame.display.update()
 pygame.time.delay(500)
