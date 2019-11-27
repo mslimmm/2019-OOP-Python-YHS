@@ -21,7 +21,7 @@ sem = pygame.image.load("images/sem.png")
 gaeyo_board = pygame.image.load("images/gaeyo_board.png")
 malpan_board = pygame.image.load("images/malpan_board.png")
 sem_board = pygame.image.load("images/sem_board.png")
-zapgi_upgi_board = pygame.image.load("images/gaeyo_board.png")
+zapgi_upgi_board = pygame.image.load("images/zapgi_upgi_board.png")
 name = pygame.image.load("images/name.png")
 backspace = pygame.image.load("images/backspace.png")
 
