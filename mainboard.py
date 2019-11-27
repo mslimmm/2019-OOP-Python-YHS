@@ -23,6 +23,7 @@ malpan_board = pygame.image.load("images/malpan_board.png")
 sem_board = pygame.image.load("images/sem_board.png")
 zapgi_upgi_board = pygame.image.load("images/gaeyo_board.png")
 name = pygame.image.load("images/name.png")
+backspace = pygame.image.load("images/backspace.png")
 
 '''
 screen.fill((255, 255, 255))
@@ -40,9 +41,10 @@ pygame.time.delay(1000)
 spot_gs = pp.find_coord((0, -100))
 spot_gi = pp.find_coord((0, -200))
 spot_gaeyo = pp.find_coord((0, 150))
-spot_sem = pp.find_coord((0, 0))
-spot_malpan = pp.find_coord((0, -150))
-spot_zapgi_upgi = pp.find_coord((0, -300))
+spot_sem = pp.find_coord((0, 50))
+spot_malpan = pp.find_coord((0, -50))
+spot_zapgi_upgi = pp.find_coord((0, -150))
+spot_backspace = pp.find_coord((350, 275))
 
 def IsReal(pos, spot_coord, garo, sero):
     return -garo/2 < pos[0] - spot_coord[0] < garo/2 and -sero/2 < pos[1] - spot_coord[1] < sero/2
@@ -91,10 +93,11 @@ while running:
                     Intro = True
     if Intro:
         screen.fill((255, 204, 102))
+        pp.blit_center(backspace, pp.find_coord((350, 275)))
         pp.blit_center(gaeyo, pp.find_coord((0, 150)))
-        pp.blit_center(sem, pp.find_coord((0, 0)))
-        pp.blit_center(malpan, pp.find_coord((0, -150)))
-        pp.blit_center(zapgi_upgi, pp.find_coord((0, 0)))
+        pp.blit_center(sem, pp.find_coord((0, 50)))
+        pp.blit_center(malpan, pp.find_coord((0, -50)))
+        pp.blit_center(zapgi_upgi, pp.find_coord((0, -150)))
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -107,14 +110,29 @@ while running:
                 mouse_x = pos[0]
                 mouse_y = pos[1]
                 print(mouse_x, mouse_y)
-                if IsReal(pos, spot_gi, 300, 50):
+                if IsReal(pos, spot_gaeyo, 300, 50):
                     #-150 < mouse_x - spot_gi[0] < 150 and -25 < mouse_y - spot_gi[1] < 25
                     print(1)
                     Intro = False
                     Intro1 = True
+                if IsReal(pos, spot_backspace, 100, 50):
+                    Intro = False
+                    MainMenu = True
 
+    if Intro1:
+        screen.fill((255, 204, 102))
+        pp.blit_center(backspace, pp.find_coord((350, 275)))
+        pp.blit_center(gaeyo_board, pp.find_coord((0, 0)))
+        pygame.display.update()
 
+        for event in pygame.event.get():
 
+            if event.type == pygame.QUIT:
+                running = False
+
+            if IsReal(pos, spot_backspace, 100, 50):
+                Intro1 = False
+                Intro = True
 
 
 
