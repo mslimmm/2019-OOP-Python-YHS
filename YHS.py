@@ -69,7 +69,7 @@ def wherego():
 
 def actcom(com, play):
 
-    print("컴퓨터의 차례")
+    print(com.name + "의 턴입니다!")
 
     run = True
 
@@ -80,6 +80,9 @@ def actcom(com, play):
         for i in range(4):
             if com.egglist[i] in com.onmap:
                 pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+            if play.egglist[i] in play.onmap:
+                pp.blit_center(play.egglist[i].image, pp.find_coord(pp.find_loc(play.egglist[i].x, play.egglist[i].y)))
+
         pygame.display.update()
         pygame.time.delay(500)
         randomlist = []
@@ -102,6 +105,8 @@ def actcom(com, play):
         for i in range(4):
             if com.egglist[i] in com.onmap:
                 pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+            if play.egglist[i] in play.onmap:
+                pp.blit_center(play.egglist[i].image, pp.find_coord(pp.find_loc(play.egglist[i].x, play.egglist[i].y)))
         pygame.display.update()
 
         if movecnt == 4 or movecnt == 5:
@@ -129,12 +134,12 @@ def actcom(com, play):
                 play.onmap.remove(i)
                 play.onmapno -= 1
                 run = True
-                print("컴퓨터가 당신의 말을 잡았습니다!")
+                print(com.name + "가 말을 잡았습니다!")
 
         for i in com.onmap:
             if i.x == moving_egg.x and i.y == moving_egg.y and i is not moving_egg and i not in moving_egg.carrying_egg:
                 com.make_carry(i,moving_egg)
-                print("컴퓨터가 말을 업었습니다.")
+                print(com.name + "가 말을 업었습니다.")
 
 
         pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
@@ -142,6 +147,8 @@ def actcom(com, play):
         for i in range(4):
             if com.egglist[i] in com.onmap:
                 pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+            if play.egglist[i] in play.onmap:
+                pp.blit_center(play.egglist[i].image, pp.find_coord(pp.find_loc(play.egglist[i].x, play.egglist[i].y)))
 
         pygame.display.update()
         pygame.time.delay(500)
@@ -150,20 +157,20 @@ def actcom(com, play):
             run = False
 
         if run == True:
-            print("컴퓨터가 한번 더 던집니다.")
+            print(com.name + "가 한번 더 던집니다.")
 
 
-Player = PlayerClass.player()
-Computer = PlayerClass.player()
+Player = PlayerClass.player('haitai')
+Computer = PlayerClass.player('dokabi')
 
 order = ['first','second']
 random.shuffle(order)
 
 if order[0] == 'second':
-    print("컴퓨터가 선공입니다.")
+    print(Computer.name + "가 선공입니다.")
     actcom(Computer, Player)
 else:
-    print("당신이 선공입니다.")
+    print(Player.name + "가 선공입니다.")
 
 pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
 pp.print_board()
@@ -171,7 +178,11 @@ pygame.display.update()
 pygame.time.delay(500)
 
 while True:
-    actcom(Computer,Player)
+    actcom(Player, Computer)
+    actcom(Computer, Player)
     if Computer.fineggno == 4:
-        print("컴퓨터가 이겼습니다!")
+        print(Computer.name + "가 이겼습니다!")
+        break
+    if Player.fineggno == 4:
+        print(Player.name + "가 이겼습니다!")
         break

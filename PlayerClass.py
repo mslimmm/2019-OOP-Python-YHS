@@ -1,12 +1,17 @@
 import PygamePrint as pp
 class player: #컴퓨터와 플레이어
     class egg: #가지고 있는 알의 특성
-        def __init__(self):
+        def __init__(self, char):
             self.x = 0
             self.y = 0
             self.carrying_egg = []
             self.carrying = 1
-            self.image = pp.haitai_1_image
+            if char == 'haitai':
+                self.imagelist = pp.haitai_list
+                self.image = pp.haitai_list[1]
+            elif char == 'dokabi':
+                self.imagelist = pp.dokabi_list
+                self.image = pp.dokabi_list[1]
 
 
         def move(self, movecnt):
@@ -51,27 +56,21 @@ class player: #컴퓨터와 플레이어
 
             self.carrying_egg.clear()
 
-    def __init__(self):
-        self.egglist = [self.egg(), self.egg(), self.egg(), self.egg()]
+    def __init__(self, char):
+        self.egglist = [self.egg(char), self.egg(char), self.egg(char), self.egg(char)]
         self.onmap = []
         self.onmapno = 0
         self.finegg = []
         self.fineggno = 0
+        if char == 'haitai':
+            self.name = "해태"
+        elif char == 'dokabi':
+            self.name = '도깨비'
 
     def make_carry(self,egg1,egg2):
         egg1.carrying_egg.append(egg2)
         egg1.carrying += 1
         egg2.carrying_egg.append(egg1)
         egg2.carrying += 1
-        if egg1.carrying == 1:
-            egg1.image = pp.haitai_1_image
-            egg2.image = pp.haitai_1_image
-        if egg1.carrying == 2:
-            egg1.image = pp.haitai_2_image
-            egg2.image = pp.haitai_2_image
-        if egg1.carrying == 3:
-            egg1.image = pp.haitai_3_image
-            egg2.image = pp.haitai_3_image
-        if egg1.carrying == 4:
-            egg1.image = pp.haitai_4_image
-            egg2.image = pp.haitai_4_image
+        egg1.image = egg1.imagelist[egg1.carrying]
+        egg2.image = egg2.imagelist[egg2.carrying]

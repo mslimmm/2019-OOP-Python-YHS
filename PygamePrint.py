@@ -33,6 +33,10 @@ haitai_1_image = pygame.image.load("images/haitai_1.png")
 haitai_2_image = pygame.image.load("images/haitai_2.png")
 haitai_3_image = pygame.image.load("images/haitai_3.png")
 haitai_4_image = pygame.image.load("images/haitai_4.png")
+dokabi_1_image = pygame.image.load("images/dokabi_1.png")
+dokabi_2_image = pygame.image.load("images/dokabi_2.png")
+dokabi_3_image = pygame.image.load("images/dokabi_3.png")
+dokabi_4_image = pygame.image.load("images/dokabi_4.png")
 yut_0_image = pygame.image.load("images/yut_0.png")
 yut_1_image = pygame.image.load("images/yut_1.png")
 do_image = pygame.image.load("images/do.png")
@@ -43,6 +47,8 @@ mo_image = pygame.image.load("images/mo.png")
 back_image = pygame.image.load("images/back.png")
 
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
+haitai_list = [0, haitai_1_image, haitai_2_image, haitai_3_image, haitai_4_image]
+dokabi_list = [0, dokabi_1_image, dokabi_2_image, dokabi_3_image, dokabi_4_image]
 
 def blit_center(image, tuple):
     x, y = tuple
