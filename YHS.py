@@ -1,7 +1,8 @@
 import pygame
 import random
 import PlayerClass
-import PygamePrint
+import PygamePrint as pp
+import os
 """
 업기
 스페이스
@@ -28,24 +29,42 @@ import PygamePrint
 (3,0)   (3,1)   (3,2)   (3,3)   (3,4)   (0,0) (4,0)
 """
 
+os.environ['SDL_VIDEO_CENTERED'] = '0'
+
+pygame.init()
+pygame.display.set_caption("YUT")
+
 def wherego():
     mvcnt = 0
     for i in range(4):
         x = random.randint(0,1)
+        image = pp.yut_0_image
+        if(x == 1):
+            image = pp.yut_1_image
+        pp.blit_center(image, pp.find_coord(pp.yut_loc[i]))
+        pygame.display.update()
+        pygame.time.delay(300)
         mvcnt += x
 
+    pygame.time.delay(500)
     if mvcnt == 1:
-        print("도")
+        pp.blit_center(pp.do_image, pp.find_coord((0, 0)))
+        pygame.display.update()
     elif mvcnt == 2:
-        print("개")
+        pp.blit_center(pp.gae_image, pp.find_coord((0, 0)))
+        pygame.display.update()
     elif mvcnt == 3:
-        print("걸")
+        pp.blit_center(pp.girl_image, pp.find_coord((0, 0)))
+        pygame.display.update()
     elif mvcnt == 4:
-        print("윷")
+        pp.blit_center(pp.yut_image, pp.find_coord((0, 0)))
+        pygame.display.update()
     else:
-        print("모")
+        pp.blit_center(pp.mo_image, pp.find_coord((0, 0)))
+        pygame.display.update()
         mvcnt = 5
 
+    pygame.time.delay(700)
     return mvcnt
 
 def actcom(com, play):
@@ -56,7 +75,13 @@ def actcom(com, play):
 
     while run:
         run = False
-
+        pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+        pp.print_board()
+        for i in range(4):
+            if com.egglist[i] in com.onmap:
+                pp.blit_center(pp.egg_1_image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+        pygame.display.update()
+        pygame.time.delay(500)
         randomlist = []
 
         for i in range(4):
@@ -71,6 +96,13 @@ def actcom(com, play):
         random.shuffle(randomlist)
 
         movecnt = wherego()
+
+        pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+        pp.print_board()
+        for i in range(4):
+            if com.egglist[i] in com.onmap:
+                pp.blit_center(pp.egg_1_image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+        pygame.display.update()
 
         if movecnt == 4 or movecnt == 5:
             run = True
@@ -98,10 +130,14 @@ def actcom(com, play):
                 run = True
                 print("컴퓨터가 당신의 말을 잡았습니다!")
 
+        pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+        pp.print_board()
         for i in range(4):
             if com.egglist[i] in com.onmap:
-                print("컴퓨터의", i + 1, "번째 알의 위치 : ", com.egglist[i].x, com.egglist[i].y)
+                pp.blit_center(pp.egg_1_image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
 
+        pygame.display.update()
+        pygame.time.delay(500)
         if run == True:
             print("컴퓨터가 한번 더 던집니다.")
 
@@ -118,6 +154,10 @@ if order[0] == 'second':
 else:
     print("당신이 선공입니다.")
 
+pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
+pp.print_board()
+pygame.display.update()
+pygame.time.delay(500)
 while True:
     actcom(Computer,Player)
     if Computer.fineggno == 4:
