@@ -28,10 +28,11 @@ import os
 
 (3,0)   (3,1)   (3,2)   (3,3)   (3,4)   (0,0) (4,0)
 """
-
+pygame.init()
+sound = pygame.mixer.Sound("sounds/Scream10.ogg")
+sound.set_volume(0.5)
 os.environ['SDL_VIDEO_CENTERED'] = '0'
 
-pygame.init()
 pygame.display.set_caption("YUT")
 
 def wherego():
@@ -43,6 +44,7 @@ def wherego():
             image = pp.yut_1_image
         pp.blit_center(image, pp.find_coord(pp.yut_loc[i]))
         pygame.display.update()
+        sound.play()
         pygame.time.delay(300)
         mvcnt += x
 
