@@ -115,6 +115,18 @@ while running:
                     print(1)
                     Intro = False
                     Intro1 = True
+                elif IsReal(pos, spot_sem, 300, 50):
+                    print(1)
+                    Intro = False
+                    Intro2 = True
+                elif IsReal(pos, spot_malpan, 300, 50):
+                    print(1)
+                    Intro = False
+                    Intro3 = True
+                elif IsReal(pos, spot_zapgi_upgi, 300, 50):
+                    print(1)
+                    Intro = False
+                    Intro4 = True
                 if IsReal(pos, spot_backspace, 100, 50):
                     Intro = False
                     MainMenu = True
@@ -133,7 +145,47 @@ while running:
             if IsReal(pos, spot_backspace, 100, 50):
                 Intro1 = False
                 Intro = True
+    '''if Intro2:
+        screen.fill((255, 204, 102))
+        pp.blit_center(backspace, pp.find_coord((350, 275)))
+        pp.blit_center(sem_board, pp.find_coord((0, 0)))
+        pygame.display.update()
 
+        for event in pygame.event.get():
 
+            if event.type == pygame.QUIT:
+                running = False
+
+            if IsReal(pos, spot_backspace, 100, 50):
+                Intro1 = False
+                Intro = True
+    if Intro3:
+        screen.fill((255, 204, 102))
+        pp.blit_center(backspace, pp.find_coord((350, 275)))
+        pp.blit_center(gaeyo_board, pp.find_coord((0, 0)))
+        pygame.display.update()
+
+        for event in pygame.event.get():
+
+            if event.type == pygame.QUIT:
+                running = False
+
+            if IsReal(pos, spot_backspace, 100, 50):
+                Intro1 = False
+                Intro = True
+    if Intro4:
+        screen.fill((255, 204, 102))
+        pp.blit_center(backspace, pp.find_coord((350, 275)))
+        pp.blit_center(gaeyo_board, pp.find_coord((0, 0)))
+        pygame.display.update()
+
+        for event in pygame.event.get():
+
+            if event.type == pygame.QUIT:
+                running = False
+
+            if IsReal(pos, spot_backspace, 100, 50):
+                Intro1 = False
+                Intro = True'''
 
 
