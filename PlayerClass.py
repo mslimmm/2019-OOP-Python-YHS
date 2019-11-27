@@ -1,6 +1,7 @@
 import PygamePrint as pp
-class player: #컴퓨터와 플레이어
-    class egg: #가지고 있는 알의 특성
+
+class player:
+    class egg:
         def __init__(self, char):
             self.x = 0
             self.y = 0
@@ -54,7 +55,6 @@ class player: #컴퓨터와 플레이어
                 i.carrying = 1
                 i.carrying_egg.clear()
 
-            self.carrying_egg.clear()
 
     def __init__(self, char):
         self.egglist = [self.egg(char), self.egg(char), self.egg(char), self.egg(char)]

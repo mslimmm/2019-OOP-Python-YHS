@@ -12,13 +12,18 @@ import os
 윷 4
 모 5
 (2,0)   (1,4)   (1,3)   (1,2)   (1,1)   (1,0)
+
 (2,1)   (-2,1)                 (-1,1)   (0,4)
+
 (2,2)       (-2,2)         (-1,2)       (0,3)
+
                    (-1,3)
                    (-2,3)
+                   
 (2,3)       (-1,4)         (-2,4)       (0,2)
-#
+
 (2,4)   (-1,5)                 (-2,5)   (0,1)
+
 (3,0)   (3,1)   (3,2)   (3,3)   (3,4)   (0,0) (4,0)
 """
 pygame.init()
@@ -119,15 +124,20 @@ def actcom(com, play):
         for i in play.onmap:
             if i.x == moving_egg.x and i.y == moving_egg.y:
                 i.catched()
+                for j in i.carrying_egg:
+                    play.onmap.remove(j)
+                    play.onmapno -= 1
                 play.onmap.remove(i)
                 play.onmapno -= 1
+                i.carrying_egg.clear()
                 run = True
                 print(com.name + "가 말을 잡았습니다!")
 
         for i in com.onmap:
-            if i.x == moving_egg.x and i.y == moving_egg.y and i is not moving_egg and i not in moving_egg.carrying_egg:
-                com.make_carry(i,moving_egg)
-                print(com.name + "가 말을 업었습니다.")
+            for j in com.onmap:
+                if i.x == j.x and i.y == j.y and i is not j and i not in j.carrying_egg and j not in i.carrying_egg:
+                    com.make_carry(i,j)
+                    print(com.name + "가 말을 업었습니다.")
 
 
         print_all(com, play)
@@ -158,11 +168,18 @@ def play():
     pygame.time.delay(500)
 
     while True:
-        actcom(Player, Computer)
-        actcom(Computer, Player)
+
         if Computer.fineggno == 4:
             print(Computer.name + "가 이겼습니다!")
             break
+
+        actcom(Player, Computer)
+
         if Player.fineggno == 4:
             print(Player.name + "가 이겼습니다!")
+            break
+        actcom(Computer, Player)
+
+        if Computer.fineggno == 4:
+            print(Computer.name + "가 이겼습니다!")
             break
