@@ -23,8 +23,12 @@ screen_y = 600
 board_len = screen_y - 180
 screen = pygame.display.set_mode((screen_x, screen_y))
 
-sp_image = pygame.image.load("images/small_point.png")
-bp_image = pygame.image.load("images/big_point.png")
+board_s = pygame.image.load("images/board_s.png")
+board_0 = pygame.image.load("images/board_0.png")
+board_1 = pygame.image.load("images/board_1.png")
+board_2 = pygame.image.load("images/board_2.png")
+board_3 = pygame.image.load("images/board_3.png")
+board_4 = pygame.image.load("images/board_4.png")
 egg_1_image = pygame.image.load("images/egg_1.png")
 yut_0_image = pygame.image.load("images/yut_0.png")
 yut_1_image = pygame.image.load("images/yut_1.png")
@@ -65,16 +69,23 @@ def find_coord(tuple):
 def print_board():
     for i in range(0, 4):
         for j in range(0, 5):
-            image = sp_image
+            image = board_s
             if j == 0:
-                image = bp_image
+                if i == 0:
+                    image = board_2
+                if i == 1:
+                    image = board_1
+                if i == 2:
+                    image = board_0
+                if i == 3:
+                    image = board_4
             blit_center(image, find_coord(find_loc(i, j)))
 
     for i in range(-1, -3, -1):
         for j in range(1, 6):
-            image = sp_image
+            image = board_s
             if j == 3:
-                image = bp_image
+                image = board_3
             blit_center(image, find_coord(find_loc(i, j)))
 
 """
