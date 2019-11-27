@@ -122,13 +122,16 @@ def actcom(com, play):
 
         for i in play.onmap:
             if i.x == moving_egg.x and i.y == moving_egg.y:
-                i.x = 0
-                i.y = 0
-                i.carrying = 1
+                i.catched()
                 play.onmap.remove(i)
                 play.onmapno -= 1
                 run = True
                 print("컴퓨터가 당신의 말을 잡았습니다!")
+
+        for i in com.onmap:
+            if i.x == moving_egg.x and i.y == moving_egg.y and i is not moving_egg:
+                com.make_carry(i,moving_egg)
+                print("컴퓨터가 말을 업었습니다.")
 
         pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
         pp.print_board()
