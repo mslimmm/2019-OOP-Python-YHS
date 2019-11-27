@@ -72,5 +72,7 @@ class player:
         egg1.carrying += 1
         egg2.carrying_egg.append(egg1)
         egg2.carrying += 1
-        egg1.image = egg1.imagelist[egg1.carrying]
-        egg2.image = egg2.imagelist[egg2.carrying]
+
+    def carry_image(self):
+        for egg in self.egglist:
+            egg.image = egg.imagelist[egg.carrying]

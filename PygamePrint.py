@@ -45,6 +45,9 @@ girl_image = pygame.image.load("images/girl.png")
 yut_image = pygame.image.load("images/yut.png")
 mo_image = pygame.image.load("images/mo.png")
 back_image = pygame.image.load("images/back.png")
+myturn_image = pygame.image.load("images/my_turn.png")
+comturn_image = pygame.image.load("images/com_turn.png")
+anykey_image = pygame.image.load("images/any_key.png")
 
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
 haitai_list = [0, haitai_1_image, haitai_2_image, haitai_3_image, haitai_4_image]
@@ -96,22 +99,3 @@ def print_board():
             if j == 3:
                 image = board_3
             blit_center(image, find_coord(find_loc(i, j)))
-
-"""
-def turn(Player):
-    blit_center(wood_image, find_coord((0, 0)))
-    print_board()
-    blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))
-    pygame.display.update()
-    pygame.time.delay(500)
-    mvcnt = wherego()
-    pygame.time.delay(500)
-    blit_center(wood_image, find_coord((0, 0)))
-    print_board()
-    blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))
-    pygame.display.update()
-    pygame.time.delay(500)
-    Player.egglist[0].move(mvcnt)
-    blit_center(egg_1_image, find_coord(find_loc(Player.egglist[0].x, Player.egglist[0].y)))
-    pygame.display.update()
-"""

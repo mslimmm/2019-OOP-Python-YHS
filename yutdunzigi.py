@@ -4,6 +4,8 @@ import random
 sum = 0
 mvcnt = 0
 running = True
+pp.blit_center(pp.anykey_image, pp.find_coord((0, 200)))
+pygame.display.update()
 while running:
     for event in pygame.event.get():
 

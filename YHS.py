@@ -34,6 +34,8 @@ os.environ['SDL_VIDEO_CENTERED'] = '0'
 pygame.display.set_caption("YUT")
 
 def print_all(com, play):
+    com.carry_image()
+    play.carry_image()
     pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
     pp.print_board()
     for i in range(4):
@@ -79,8 +81,6 @@ def wherego():
 
 def actcom(com, play):
 
-    print(com.name + "의 턴입니다!")
-
     run = True
 
     while run:
@@ -99,7 +99,6 @@ def actcom(com, play):
                 break
 
         random.shuffle(randomlist)
-
         movecnt = wherego()
 
         if movecnt == 4 or movecnt == 5:
