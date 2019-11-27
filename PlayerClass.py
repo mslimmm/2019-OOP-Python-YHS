@@ -55,7 +55,7 @@ class player: #컴퓨터와 플레이어
         self.finegg = []
         self.fineggno = 0
 
-    def make_cary(self,egg1,egg2):
+    def make_carry(self,egg1,egg2):
         egg1.carrying_egg.append(egg2)
         egg1.carrying += 1
         egg2.carrying_egg.append(egg1)
