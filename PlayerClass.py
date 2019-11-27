@@ -33,7 +33,6 @@ class player: #컴퓨터와 플레이어
                 i.x = self.x
                 i.y = self.y
 
-
     def __init__(self):
         self.egglist = [self.egg(), self.egg(), self.egg(), self.egg()]
         self.onmap = []
