@@ -182,3 +182,5 @@ def play():
         if Computer.fineggno == 4:
             print(Computer.name + "가 이겼습니다!")
             break
+
+

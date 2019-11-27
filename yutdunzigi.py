@@ -42,6 +42,7 @@ while running:
                 pygame.display.update()
                 mvcnt = 5
 
+            running = False
             pygame.time.delay(700)
             break
 

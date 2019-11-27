@@ -27,24 +27,41 @@
 (2,4)   (-1,5)                 (-2,5)   (0,1)
 
 (3,0)   (3,1)   (3,2)   (3,3)   (3,4)   (0,0) (4,0)
+
+누르는 칸 : 20px짜리 정사각형, 말 기준으로 위로 30, 오른쪽으로 30px에 중심이 오게 찍는다.
 """
 
-import PygamePrint
-import PlayerClass
-import pygame, sys, random
+import PygamePrint as pp
+from PlayerClass import *
+import pygame, random
 from pygame.locals import *
-import os
-import YHS
-def actplayer(Player):
-    number = Player.onmapno
-    x = ''
-    print("움직이고 싶은 말의 번호를 움직여 주세요")
-    input(x)
-    while int(x) >= 4 or int(x) < 0:
-        print("다시 입력해주세요")
-        input(x)
-    move = int(x)
-    PlayerClass.player.move(Player.egglist[move], movecnt)
+from YHS import *
+import yutdunzigi
+LEFT = 1
+RIGHT = 3
+
+def find_coord(egg):
+    return pp.find_coord(pp.find_loc(egg.x, egg.y))
+
+#pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y))
+
+def actplayer(Player, Computer):
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+        if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+            pos = pygame.mouse.get_pos()
+            mouse_x = pos[0]
+            mouse_y = pos[1]
+    for i in Player.egglist:
+        if i not in Player.finegg and -10 < find_coord(i)[0] + 30 - mouse_x < 10 and -10 < find_coord(i)[1] + 30 - mouse_y < 10:
+            x = yutdunzigi.playertogo() # 윷던지기.py에서 playertogo를 wheretogo랑 비슷하게 만들 것임
+
+            act(Player, Computer) #act는 가제로, YHS에서 구동하는 함수 이름임.
+
+
+
 
 
 
