@@ -22,6 +22,8 @@ gaeyo_board = pygame.image.load("images/gaeyo_board.png")
 malpan_board = pygame.image.load("images/malpan_board.png")
 sem_board = pygame.image.load("images/sem_board.png")
 zapgi_upgi_board = pygame.image.load("images/gaeyo_board.png")
+name = pygame.image.load("images/name.png")
+
 '''
 screen.fill((255, 255, 255))
 pp.blit_center(game_start, pp.find_coord((0, 150)))
@@ -35,8 +37,8 @@ pygame.time.delay(1000)
 
 '''
 
-spot_gs = pp.find_coord((0, 150))
-spot_gi = pp.find_coord((0, 0))
+spot_gs = pp.find_coord((0, -100))
+spot_gi = pp.find_coord((0, -200))
 spot_gaeyo = pp.find_coord((0, 150))
 spot_sem = pp.find_coord((0, 0))
 spot_malpan = pp.find_coord((0, -150))
@@ -59,9 +61,10 @@ GamePlay = True
 while running:
 
     if MainMenu:
-
-        pp.blit_center(game_start, pp.find_coord((0, 150)))
-        pp.blit_center(game_intro, pp.find_coord((0, 0)))
+        screen.fill((255, 204, 102))
+        pp.blit_center(name, pp.find_coord((0, 50)))
+        pp.blit_center(game_start, pp.find_coord((0, -100)))
+        pp.blit_center(game_intro, pp.find_coord((0, -200)))
         pygame.display.update()
         for event in pygame.event.get():
 
@@ -87,7 +90,7 @@ while running:
                     MainMenu = False
                     Intro = True
     if Intro:
-        screen.fill((255, 255, 255))
+        screen.fill((255, 204, 102))
         pp.blit_center(gaeyo, pp.find_coord((0, 150)))
         pp.blit_center(sem, pp.find_coord((0, 0)))
         pp.blit_center(malpan, pp.find_coord((0, -150)))
