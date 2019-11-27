@@ -69,6 +69,16 @@ def wherego():
     pygame.time.delay(700)
     return mvcnt
 
+def print_all(com, play):
+    pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
+    pp.print_board()
+    for i in range(4):
+        if com.egglist[i] in com.onmap:
+            pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
+        if play.egglist[i] in play.onmap:
+            pp.blit_center(play.egglist[i].image, pp.find_coord(pp.find_loc(play.egglist[i].x, play.egglist[i].y)))
+    pygame.display.update()
+
 def actcom(com, play):
 
     print(com.name + "의 턴입니다!")
@@ -77,15 +87,7 @@ def actcom(com, play):
 
     while run:
         run = False
-        pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
-        pp.print_board()
-        for i in range(4):
-            if com.egglist[i] in com.onmap:
-                pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
-            if play.egglist[i] in play.onmap:
-                pp.blit_center(play.egglist[i].image, pp.find_coord(pp.find_loc(play.egglist[i].x, play.egglist[i].y)))
-
-        pygame.display.update()
+        print_all(com, play)
         pygame.time.delay(500)
         randomlist = []
 
@@ -102,14 +104,7 @@ def actcom(com, play):
 
         movecnt = wherego()
 
-        pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
-        pp.print_board()
-        for i in range(4):
-            if com.egglist[i] in com.onmap:
-                pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
-            if play.egglist[i] in play.onmap:
-                pp.blit_center(play.egglist[i].image, pp.find_coord(pp.find_loc(play.egglist[i].x, play.egglist[i].y)))
-        pygame.display.update()
+        print_all(com, play)
 
         if movecnt == 4 or movecnt == 5:
             run = True
@@ -143,16 +138,7 @@ def actcom(com, play):
                 com.make_carry(i,moving_egg)
                 print(com.name + "가 말을 업었습니다.")
 
-
-        pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
-        pp.print_board()
-        for i in range(4):
-            if com.egglist[i] in com.onmap:
-                pp.blit_center(com.egglist[i].image, pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y)))
-            if play.egglist[i] in play.onmap:
-                pp.blit_center(play.egglist[i].image, pp.find_coord(pp.find_loc(play.egglist[i].x, play.egglist[i].y)))
-
-        pygame.display.update()
+        print_all(com, play)
         pygame.time.delay(500)
 
         if com.fineggno == 4:
@@ -161,30 +147,32 @@ def actcom(com, play):
         if run == True:
             print(com.name + "가 한번 더 던집니다.")
 
-def play():
-    Player = PlayerClass.player('haitai')
-    Computer = PlayerClass.player('dokabi')
 
-    order = ['first','second']
-    random.shuffle(order)
+Player = PlayerClass.player('haitai')
+Computer = PlayerClass.player('dokabi')
 
-    if order[0] == 'second':
-        print(Computer.name + "가 선공입니다.")
-        actcom(Computer, Player)
-    else:
-        print(Player.name + "가 선공입니다.")
+order = ['first','second']
+random.shuffle(order)
 
-    pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
-    pp.print_board()
-    pygame.display.update()
-    pygame.time.delay(500)
+if order[0] == 'second':
+    print(Computer.name + "가 선공입니다.")
+    actcom(Computer, Player)
+else:
+    print(Player.name + "가 선공입니다.")
 
-    while True:
-        actcom(Player, Computer)
-        actcom(Computer, Player)
-        if Computer.fineggno == 4:
-            print(Computer.name + "가 이겼습니다!")
-            break
-        if Player.fineggno == 4:
-            print(Player.name + "가 이겼습니다!")
-            break
+pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
+pp.print_board()
+pygame.display.update()
+pygame.time.delay(500)
+
+running = True
+
+while running:
+    actcom(Player, Computer)
+    actcom(Computer, Player)
+    if Computer.fineggno == 4:
+        print(Computer.name + "가 이겼습니다!")
+        break
+    if Player.fineggno == 4:
+        print(Player.name + "가 이겼습니다!")
+        break
