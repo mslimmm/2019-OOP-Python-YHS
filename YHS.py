@@ -161,30 +161,30 @@ def actcom(com, play):
         if run == True:
             print(com.name + "가 한번 더 던집니다.")
 
+def play():
+    Player = PlayerClass.player('haitai')
+    Computer = PlayerClass.player('dokabi')
 
-Player = PlayerClass.player('haitai')
-Computer = PlayerClass.player('dokabi')
+    order = ['first','second']
+    random.shuffle(order)
 
-order = ['first','second']
-random.shuffle(order)
+    if order[0] == 'second':
+        print(Computer.name + "가 선공입니다.")
+        actcom(Computer, Player)
+    else:
+        print(Player.name + "가 선공입니다.")
 
-if order[0] == 'second':
-    print(Computer.name + "가 선공입니다.")
-    actcom(Computer, Player)
-else:
-    print(Player.name + "가 선공입니다.")
+    pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
+    pp.print_board()
+    pygame.display.update()
+    pygame.time.delay(500)
 
-pp.blit_center(pp.back_image, pp.find_coord((0, 0)))
-pp.print_board()
-pygame.display.update()
-pygame.time.delay(500)
-
-while True:
-    actcom(Player, Computer)
-    actcom(Computer, Player)
-    if Computer.fineggno == 4:
-        print(Computer.name + "가 이겼습니다!")
-        break
-    if Player.fineggno == 4:
-        print(Player.name + "가 이겼습니다!")
-        break
+    while True:
+        actcom(Player, Computer)
+        actcom(Computer, Player)
+        if Computer.fineggno == 4:
+            print(Computer.name + "가 이겼습니다!")
+            break
+        if Player.fineggno == 4:
+            print(Player.name + "가 이겼습니다!")
+            break

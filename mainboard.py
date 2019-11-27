@@ -3,7 +3,7 @@ import PygamePrint as pp
 from pygame.locals import *
 import os
 import sys
-
+import YHS
 os.environ['SDL_VIDEO_CENTERED'] = '0'
 
 pygame.init()
@@ -57,7 +57,7 @@ Intro = False
 Intro1 = False
 Intro2 = False
 Intro3 = False
-
+Intro4 = False
 GamePlay = True
 
 while running:
@@ -86,7 +86,9 @@ while running:
                 pp.blit_center(malpan, pp.find_coord((0, -150)))
                 pygame.display.update()
                 pygame.time.delay(10000)'''
-                if IsReal(pos, spot_gi, 300, 50):
+                if IsReal(pos, spot_gs, 300, 50):
+                    YHS.play()
+                elif IsReal(pos, spot_gi, 300, 50):
                     #-150 < mouse_x - spot_gi[0] < 150 and -25 < mouse_y - spot_gi[1] < 25
                     print(1)
                     MainMenu = False
@@ -141,11 +143,14 @@ while running:
 
             if event.type == pygame.QUIT:
                 running = False
-
-            if IsReal(pos, spot_backspace, 100, 50):
-                Intro1 = False
-                Intro = True
-    '''if Intro2:
+            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+                pos = pygame.mouse.get_pos()
+                mouse_x = pos[0]
+                mouse_y = pos[1]
+                if IsReal(pos, spot_backspace, 100, 50):
+                    Intro1 = False
+                    Intro = True
+    if Intro2:
         screen.fill((255, 204, 102))
         pp.blit_center(backspace, pp.find_coord((350, 275)))
         pp.blit_center(sem_board, pp.find_coord((0, 0)))
@@ -155,14 +160,17 @@ while running:
 
             if event.type == pygame.QUIT:
                 running = False
-
-            if IsReal(pos, spot_backspace, 100, 50):
-                Intro1 = False
-                Intro = True
+            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+                pos = pygame.mouse.get_pos()
+                mouse_x = pos[0]
+                mouse_y = pos[1]
+                if IsReal(pos, spot_backspace, 100, 50):
+                    Intro2 = False
+                    Intro = True
     if Intro3:
         screen.fill((255, 204, 102))
         pp.blit_center(backspace, pp.find_coord((350, 275)))
-        pp.blit_center(gaeyo_board, pp.find_coord((0, 0)))
+        pp.blit_center(malpan_board, pp.find_coord((0, 0)))
         pygame.display.update()
 
         for event in pygame.event.get():
@@ -170,22 +178,30 @@ while running:
             if event.type == pygame.QUIT:
                 running = False
 
-            if IsReal(pos, spot_backspace, 100, 50):
-                Intro1 = False
-                Intro = True
+            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+                pos = pygame.mouse.get_pos()
+                mouse_x = pos[0]
+                mouse_y = pos[1]
+
+                if IsReal(pos, spot_backspace, 100, 50):
+                    Intro3 = False
+                    Intro = True
     if Intro4:
         screen.fill((255, 204, 102))
         pp.blit_center(backspace, pp.find_coord((350, 275)))
-        pp.blit_center(gaeyo_board, pp.find_coord((0, 0)))
+        pp.blit_center(zapgi_upgi_board, pp.find_coord((0, 0)))
         pygame.display.update()
 
         for event in pygame.event.get():
 
             if event.type == pygame.QUIT:
                 running = False
-
-            if IsReal(pos, spot_backspace, 100, 50):
-                Intro1 = False
-                Intro = True'''
+            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+                pos = pygame.mouse.get_pos()
+                mouse_x = pos[0]
+                mouse_y = pos[1]
+                if IsReal(pos, spot_backspace, 100, 50):
+                    Intro4 = False
+                    Intro = True
 
 
