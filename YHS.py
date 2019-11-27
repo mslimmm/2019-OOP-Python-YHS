@@ -138,6 +138,10 @@ def actcom(com, play):
 
         pygame.display.update()
         pygame.time.delay(500)
+
+        if com.fineggno == 4:
+            run = False
+
         if run == True:
             print("컴퓨터가 한번 더 던집니다.")
 
@@ -158,6 +162,7 @@ pp.blit_center(pp.wood_image, pp.find_coord((0, 0)))
 pp.print_board()
 pygame.display.update()
 pygame.time.delay(500)
+
 while True:
     actcom(Computer,Player)
     if Computer.fineggno == 4:

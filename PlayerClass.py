@@ -30,8 +30,8 @@ class player: #컴퓨터와 플레이어
                     break
 
             for i in self.carrying_egg:
-                self.carrying_egg.x = self.x
-                self.carrying_egg.y = self.y
+                i.x = self.x
+                i.y = self.y
 
 
     def __init__(self):
