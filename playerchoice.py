@@ -34,6 +34,7 @@ import PlayerClass
 import pygame, sys, random
 from pygame.locals import *
 import os
+import YHS
 def actplayer(Player):
     number = Player.onmapno
     x = ''

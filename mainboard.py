@@ -58,6 +58,7 @@ Intro1 = False
 Intro2 = False
 Intro3 = False
 Intro4 = False
+#Intro5 = False
 GamePlay = True
 
 while running:
@@ -72,6 +73,10 @@ while running:
 
             if event.type == pygame.QUIT:
                 running = False
+
+            '''if event.type == pygame.KEYDOWN:
+                MainMenu = False
+                Intro5 = True'''
 
             if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
                 pos = pygame.mouse.get_pos()
@@ -93,6 +98,8 @@ while running:
                     print(1)
                     MainMenu = False
                     Intro = True
+
+
     if Intro:
         screen.fill((255, 204, 102))
         pp.blit_center(backspace, pp.find_coord((350, 275)))
@@ -204,4 +211,11 @@ while running:
                     Intro4 = False
                     Intro = True
 
+    '''if Intro5:
+        screen.fill((255, 204, 102))
+        pp.blit_center(backspace, pp.find_coord((0, 0)))
+        pygame.display.update()
+        for event in pygame.event.get():
 
+            if event.type == pygame.QUIT:
+                running = False'''
