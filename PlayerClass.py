@@ -4,6 +4,7 @@ class player: #컴퓨터와 플레이어
             self.x = 0
             self.y = 0
             self.carrying_egg = []
+            self.carrying = 1
 
         def move(self, movecnt):
 
@@ -33,6 +34,19 @@ class player: #컴퓨터와 플레이어
                 i.x = self.x
                 i.y = self.y
 
+        def catched(self):
+
+            self.x = 0
+            self.y = 0
+            self.carrying = 1
+
+            for i in self.carrying_egg:
+                i.x = 0
+                i.y = 0
+                i.carrying = 1
+                i.carrying_egg.clear()
+
+            self.carrying_egg.clear()
 
     def __init__(self):
         self.egglist = [self.egg(), self.egg(), self.egg(), self.egg()]
@@ -40,3 +54,9 @@ class player: #컴퓨터와 플레이어
         self.onmapno = 0
         self.finegg = []
         self.fineggno = 0
+
+    def make_carry(self,egg1,egg2):
+        egg1.carrying_egg.append(egg2)
+        egg1.carrying += 1
+        egg2.carrying_egg.append(egg1)
+        egg2.carrying += 1
