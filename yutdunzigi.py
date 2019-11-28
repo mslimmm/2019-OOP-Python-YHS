@@ -10,13 +10,12 @@ def playut():
     running = True
     pp.blit_center(pp.anykey_image, pp.find_coord((0, 260)))
     pygame.display.update()
+    pygame.event.clear()
     while running:
+        check = 0
         for event in pygame.event.get():
-
-            if event.type == pygame.QUIT:
-                running = False
-
             if event.type == pygame.KEYDOWN:
+                print("누름")
                 x = random.randint(0, 1)
                 image = pp.yut_0_image
                 if (x == 1):
@@ -45,9 +44,12 @@ def playut():
                     pygame.display.update()
                     mvcnt = 5
 
-                running = False
-                pygame.time.delay(700)
+                check += 1
                 break
+        if check == 1:
+            running = False
+            pygame.time.delay(700)
+
     return mvcnt
 
 
@@ -83,3 +85,4 @@ def comyut():
 
     pygame.time.delay(700)
     return mvcnt
+playut()
