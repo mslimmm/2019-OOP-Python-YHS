@@ -99,3 +99,15 @@ def print_board():
             if j == 3:
                 image = board_3
             blit_center(image, find_coord(find_loc(i, j)))
+
+def print_all(user1, user2):
+    user1.carry_image()
+    user2.carry_image()
+    blit_center(back_image, find_coord((0, 0)))
+    print_board()
+    for i in range(4):
+        if user1.egglist[i] in user1.onmap:
+            blit_center(user1.egglist[i].image, find_coord(find_loc(user1.egglist[i].x, user1.egglist[i].y)))
+        if user2.egglist[i] in user2.onmap:
+            blit_center(user2.egglist[i].image, find_coord(find_loc(user2.egglist[i].x, user2.egglist[i].y)))
+    pygame.display.update()
