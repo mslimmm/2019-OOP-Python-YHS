@@ -85,4 +85,3 @@ def comyut():
 
     pygame.time.delay(700)
     return mvcnt
-playut()
