@@ -78,8 +78,9 @@ class player:
             egg.image = egg.imagelist[egg.carrying]
 
 
-
-
+'''
+유저 클래스로 개편
+'''
 
 
 
