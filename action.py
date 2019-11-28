@@ -23,6 +23,7 @@ def actcom(user1, user2):
                 break
 
         random.shuffle(randomlist)
+
         movecnt = user1.wherego()
 
         if movecnt == 4 or movecnt == 5:

@@ -29,14 +29,31 @@ board_1 = pygame.image.load("images/board_1.png")
 board_2 = pygame.image.load("images/board_2.png")
 board_3 = pygame.image.load("images/board_3.png")
 board_4 = pygame.image.load("images/board_4.png")
+
 haitai_1_image = pygame.image.load("images/haitai_1.png")
 haitai_2_image = pygame.image.load("images/haitai_2.png")
 haitai_3_image = pygame.image.load("images/haitai_3.png")
 haitai_4_image = pygame.image.load("images/haitai_4.png")
+haitai_first_image = pygame.image.load("images/haitai_first_image.png")
+haitai_turn_image = pygame.image.load("images/haitai_turn_image.png")
+haitai_yut_again = pygame.image.load("images/haitai_yut_again.png")
+haitai_mo_again = pygame.image.load("images/haitai_mo_again.png")
+haitai_catch_image = pygame.image.load("images/haitai_catch_image.png")
+haitai_carry_image = pygame.image.load("images/haitai_carry_image.png")
+haitai_win_image = pygame.image.load("images/haitai_win_image.png")
+
 dokabi_1_image = pygame.image.load("images/dokabi_1.png")
 dokabi_2_image = pygame.image.load("images/dokabi_2.png")
 dokabi_3_image = pygame.image.load("images/dokabi_3.png")
 dokabi_4_image = pygame.image.load("images/dokabi_4.png")
+dokabi_first_image = pygame.image.load("images/dokabi_first_image.png")
+dokabi_turn_image = pygame.image.load("images/dokabi_turn_image.png")
+dokabi_yut_again = pygame.image.load("images/dokabi_yut_again.png")
+dokabi_mo_again = pygame.image.load("images/dokabi_mo_again.png")
+dokabi_catch_image = pygame.image.load("images/dokabi_catch_image.png")
+dokabi_carry_image = pygame.image.load("images/dokabi_carry_image.png")
+dokabi_win_image = pygame.image.load("images/dokabi_win_image.png")
+
 yut_0_image = pygame.image.load("images/yut_0.png")
 yut_1_image = pygame.image.load("images/yut_1.png")
 do_image = pygame.image.load("images/do.png")
@@ -45,13 +62,14 @@ girl_image = pygame.image.load("images/girl.png")
 yut_image = pygame.image.load("images/yut.png")
 mo_image = pygame.image.load("images/mo.png")
 back_image = pygame.image.load("images/back.png")
-myturn_image = pygame.image.load("images/my_turn.png")
-comturn_image = pygame.image.load("images/com_turn.png")
+
 anykey_image = pygame.image.load("images/any_key.png")
 
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
 haitai_list = [0, haitai_1_image, haitai_2_image, haitai_3_image, haitai_4_image]
 dokabi_list = [0, dokabi_1_image, dokabi_2_image, dokabi_3_image, dokabi_4_image]
+haitai_dict = {'first': haitai_first_image, 'turn': haitai_turn_image, 'catch': haitai_catch_image, 'win': haitai_win_image, 'yut': haitai_yut_again, 'mo': haitai_mo_again, 'carry': haitai_carry_image}
+dokabi_dict = {'first': dokabi_first_image, 'turn': dokabi_turn_image, 'catch': dokabi_catch_image, 'win': dokabi_win_image, 'yut': dokabi_yut_again, 'mo': dokabi_mo_again, 'carry': dokabi_carry_image}
 
 def blit_center(image, tuple):
     x, y = tuple

@@ -36,30 +36,65 @@ def play():
     com1 = UserClass.Computer('컴퓨터')
     play = UserClass.Player('플레이어')
 
+    pp.print_all(com1, play)
+    pygame.display.update()
+
     order = ['first','second']
     random.shuffle(order)
 
     if order[0] == 'second':
-        print(com1.name + "가 선공입니다.")
+        pp.blit_center(com1.imagedict['first'], pp.find_coord((0, 260)))
+        pygame.display.update()
+        pygame.time.delay(1000)
+        pp.print_all(com1, play)
+        pygame.display.update()
+
+        pp.blit_center(com1.imagedict['turn'], pp.find_coord((0, 0)))
+        pygame.display.update()
+        pygame.time.delay(1000)
+        pp.print_all(com1, play)
+        pygame.display.update()
         com1.act(com1, play)
+
     else:
-        print(play.name + "가 선공입니다.")
+        pp.blit_center(play.imagedict['first'], pp.find_coord((0, 260)))
+        pygame.display.update()
+        pygame.time.delay(1000)
+        pp.print_all(com1, play)
+        pygame.display.update()
 
     while True:
 
         if com1.fineggno == 4:
-            print(com1.name + "가 이겼습니다!")
+            pp.blit_center(com1.imagedict['win'], pp.find_coord((0, 0)))
+            pygame.display.update()
+            pygame.time.delay(1000)
             break
 
+        pp.blit_center(play.imagedict['turn'], pp.find_coord((0, 0)))
+        pygame.display.update()
+        pygame.time.delay(1000)
+        pp.print_all(play, com1)
+        pygame.display.update()
         play.act(play, com1)
 
         if play.fineggno == 4:
-            print(play.name + "가 이겼습니다!")
+            pp.blit_center(play.imagedict['win'], pp.find_coord((0, 0)))
+            pygame.display.update()
+            pygame.time.delay(1000)
             break
+
+        pp.blit_center(com1.imagedict['turn'], pp.find_coord((0, 0)))
+        pygame.display.update()
+        pygame.time.delay(1000)
+        pp.print_all(com1, play)
+        pygame.display.update()
         com1.act(com1, play)
 
         if com1.fineggno == 4:
-            print(com1.name + "가 이겼습니다!")
+            pp.blit_center(com1.imagedict['win'], pp.find_coord((0, 0)))
+            pygame.display.update()
+            pygame.time.delay(1000)
             break
 
 
