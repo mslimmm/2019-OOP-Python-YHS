@@ -45,7 +45,7 @@ def find_coord(egg):
 
 #pp.find_coord(pp.find_loc(com.egglist[i].x, com.egglist[i].y))
 
-def actplayer(Player, Computer):
+def actplayer(user1, user2):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -54,11 +54,10 @@ def actplayer(Player, Computer):
             pos = pygame.mouse.get_pos()
             mouse_x = pos[0]
             mouse_y = pos[1]
-    for i in Player.egglist:
-        if i not in Player.finegg and -10 < find_coord(i)[0] + 30 - mouse_x < 10 and -10 < find_coord(i)[1] + 30 - mouse_y < 10:
-            x = yutdunzigi.playertogo() # 윷던지기.py에서 playertogo를 wheretogo랑 비슷하게 만들 것임
+    for i in user1.egglist:
+        if i not in user1.finegg and -10 < find_coord(i)[0] + 30 - mouse_x < 10 and -10 < find_coord(i)[1] + 30 - mouse_y < 10:
+            yutdunzigi.playut()
 
-            act(Player, Computer) #act는 가제로, YHS에서 구동하는 함수 이름임.
 
 
 
