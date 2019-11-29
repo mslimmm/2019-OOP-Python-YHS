@@ -21,6 +21,7 @@ def playut(user):
                     mvcnt += 1
                 pp.blit_center(image, pp.find_coord(pp.yut_loc[sum]))
                 pygame.display.update()
+                pp.yut.play()
                 sum += 1
 
             if sum == 4:
@@ -45,10 +46,11 @@ def comyut():
             image = pp.yut_1_image
         pp.blit_center(image, pp.find_coord(pp.yut_loc[i]))
         pygame.display.update()
+        pp.yut.play()
         pygame.time.delay(300)
         mvcnt += x
 
-    pygame.time.delay(500)
+    pygame.time.delay(300)
     mvcnt = pp.print_mvcnt(mvcnt)
 
     pygame.time.delay(700)

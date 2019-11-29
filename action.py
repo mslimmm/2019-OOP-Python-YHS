@@ -38,6 +38,7 @@ def actuser(moving_egg, user1, user2, movecnt):
             user2.onmapno -= 1
             i.carrying_egg.clear()
             run = True
+            pp.catch.play()
             pp.situation(user1, user2, 'catch')
             chk = 1
 

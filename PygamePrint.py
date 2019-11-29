@@ -17,6 +17,11 @@
 """
 
 import pygame
+pygame.mixer.init()
+yut = pygame.mixer.Sound("sounds/yut.wav")
+catch = pygame.mixer.Sound("sounds/Scream10.ogg")
+yut.set_volume(0.5)
+catch.set_volume(0.5)
 
 screen_x = 800
 screen_y = 600
@@ -34,7 +39,6 @@ haitai_1_image = pygame.image.load("images/haitai_1.png")
 haitai_2_image = pygame.image.load("images/haitai_2.png")
 haitai_3_image = pygame.image.load("images/haitai_3.png")
 haitai_4_image = pygame.image.load("images/haitai_4.png")
-haitai_m_image = pygame.image.load("images/haitai_m.png")
 haitai_first_image = pygame.image.load("images/haitai_first_image.png")
 haitai_turn_image = pygame.image.load("images/haitai_turn_image.png")
 haitai_yut_again = pygame.image.load("images/haitai_yut_again.png")
@@ -50,7 +54,6 @@ dokabi_1_image = pygame.image.load("images/dokabi_1.png")
 dokabi_2_image = pygame.image.load("images/dokabi_2.png")
 dokabi_3_image = pygame.image.load("images/dokabi_3.png")
 dokabi_4_image = pygame.image.load("images/dokabi_4.png")
-dokabi_m_image = pygame.image.load("images/dokabi_m.png")
 dokabi_first_image = pygame.image.load("images/dokabi_first_image.png")
 dokabi_turn_image = pygame.image.load("images/dokabi_turn_image.png")
 dokabi_yut_again = pygame.image.load("images/dokabi_yut_again.png")
@@ -79,8 +82,6 @@ s_1 = pygame.image.load("images/S_1.png")
 s_2 = pygame.image.load("images/S_2.png")
 s_3 = pygame.image.load("images/S_3.png")
 s_4 = pygame.image.load("images/S_4.png")
-
-line = pygame.image.load("images/line.png")
 
 
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
