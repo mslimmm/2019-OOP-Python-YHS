@@ -89,8 +89,8 @@ line = pygame.image.load("images/line.png")
 
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
 
-g_loc_dict = {'score': (-330, 170), 'face': (-330, 250)}
-r_loc_dict = {'score': (330, 170), 'face': (330, 250)}
+g_loc_dict = {'score': (330, 170), 'face': (330, 250)}
+r_loc_dict = {'score': (-330, 170), 'face': (-330, 250)}
 
 g_score_list = [g_0, g_1, g_2, g_3, g_4]
 r_score_list = [r_0, r_1, r_2, r_3, r_4]
@@ -186,12 +186,13 @@ def eggarrow(user):
         arrow_x, arrow_y = find_loc(egg.x, egg.y)
         choose_list.append(i)
         blit_center(user.imagedict['arrow'], find_coord((arrow_x, arrow_y + 30)))
-    if 4 - user.onmapno - user.fineggno:
-        arrow_x = 300
-        arrow_y = 0
+    if 4 - user.onmapno - user.fineggno > 0:
+        arrow_x = 320
+        arrow_y = -150
         choose_list.append(-1)
+        blit_center(user.imagedict['arrow'], find_coord((arrow_x, arrow_y - 20)))
         blit_center(user.imagedict['new'], find_coord((arrow_x, arrow_y)))
-
+        blit_center(user.imagelist[4-user.onmapno-user.fineggno], find_coord((arrow_x, arrow_y - 80)))
     return choose_list
 
 def print_mvcnt(mvcnt):

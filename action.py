@@ -126,8 +126,8 @@ def actplay(user1, user2):
                     mouse_y = pp.screen_y / 2 - mouse_y
                     for eggnum in choose_list:
                         if eggnum == -1:
-                                xsize, ysize = user1.imagedict['new'].get_rect().size
-                                if (300 - xsize / 2 <= mouse_x <= 300 + xsize / 2) and (0 - ysize / 2 <= mouse_y <= 0 + ysize / 2):
+                                xsize, ysize = user1.imagelist[4-user1.onmapno-user1.fineggno].get_rect().size
+                                if (320 - xsize / 2 <= mouse_x <= 320 + xsize / 2) and (-230 - ysize / 2 <= mouse_y <= -230 + ysize / 2):
                                     choose = 1
                                     moving_egg = randomlist[0]
 
