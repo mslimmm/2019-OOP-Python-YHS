@@ -78,7 +78,6 @@ class Player(User):
         self.name = name
         self.imagelist = pp.haitai_list
         self.imagedict = pp.haitai_dict
-        self.image = self.imagelist[1]
 
     def wherego(self):
         return yd.playut(self)
