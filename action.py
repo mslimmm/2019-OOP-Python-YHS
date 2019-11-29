@@ -5,11 +5,9 @@ import random
 
 LEFT = 1
 
-def actuser(moving_egg, user1, user2):
+def actuser(moving_egg, user1, user2, movecnt):
 
     run = False
-
-    movecnt = user1.wherego()
 
     if movecnt == 4 or movecnt == 5:
         run = True
@@ -92,7 +90,8 @@ def actcom(user1, user2):
         random.shuffle(randomlist)
         moving_egg = user1.egglist[randomlist[0]]
 
-        run = actuser(moving_egg, user1, user2)
+        movecnt = user1.wherego()
+        run = actuser(moving_egg, user1, user2, movecnt)
 
 
 def actplay(user1, user2):
@@ -110,11 +109,15 @@ def actplay(user1, user2):
         pp.print_all(user1, user2)
         pygame.display.update()
         pygame.time.delay(500)
+        choose = 0
+        moving_egg = 0
+        movecnt = user1.wherego()
+        pygame.time.delay(500)
+        pp.print_all(user1, user2)
+        pp.print_mvcnt(movecnt)
         pp.blit_center(user1.imagedict['what'], pp.find_coord((0, 260)))
         choose_list = pp.eggarrow(user1)
         pygame.display.update()
-        choose = 0
-        moving_egg = 0
         while not choose:
             for event in pygame.event.get():
                 if event.type == MOUSEBUTTONUP and event.button == LEFT:
@@ -136,5 +139,5 @@ def actplay(user1, user2):
                                 choose = 1
                                 moving_egg = user1.onmap[eggnum]
 
-        run = actuser(moving_egg, user1, user2)
+        run = actuser(moving_egg, user1, user2, movecnt)
 

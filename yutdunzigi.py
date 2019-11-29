@@ -2,8 +2,6 @@ import pygame
 import PygamePrint as pp
 import random
 
-mvcnt_coord = (0, 130)
-
 def playut(user):
     sum = 0
     mvcnt = 0
@@ -27,22 +25,7 @@ def playut(user):
 
             if sum == 4:
                 pygame.time.delay(500)
-                if mvcnt == 1:
-                    pp.blit_center(pp.do_image, pp.find_coord(mvcnt_coord))
-                    pygame.display.update()
-                elif mvcnt == 2:
-                    pp.blit_center(pp.gae_image, pp.find_coord(mvcnt_coord))
-                    pygame.display.update()
-                elif mvcnt == 3:
-                    pp.blit_center(pp.girl_image, pp.find_coord(mvcnt_coord))
-                    pygame.display.update()
-                elif mvcnt == 4:
-                    pp.blit_center(pp.yut_image, pp.find_coord(mvcnt_coord))
-                    pygame.display.update()
-                else:
-                    pp.blit_center(pp.mo_image, pp.find_coord(mvcnt_coord))
-                    pygame.display.update()
-                    mvcnt = 5
+                pp.print_mvcnt(mvcnt)
 
                 check += 1
                 break
@@ -67,19 +50,19 @@ def comyut():
 
     pygame.time.delay(500)
     if mvcnt == 1:
-        pp.blit_center(pp.do_image, pp.find_coord(mvcnt_coord))
+        pp.blit_center(pp.do_image, pp.find_coord(pp.mvcnt_coord))
         pygame.display.update()
     elif mvcnt == 2:
-        pp.blit_center(pp.gae_image, pp.find_coord(mvcnt_coord))
+        pp.blit_center(pp.gae_image, pp.find_coord(pp.mvcnt_coord))
         pygame.display.update()
     elif mvcnt == 3:
-        pp.blit_center(pp.girl_image, pp.find_coord(mvcnt_coord))
+        pp.blit_center(pp.girl_image, pp.find_coord(pp.mvcnt_coord))
         pygame.display.update()
     elif mvcnt == 4:
-        pp.blit_center(pp.yut_image, pp.find_coord(mvcnt_coord))
+        pp.blit_center(pp.yut_image, pp.find_coord(pp.mvcnt_coord))
         pygame.display.update()
     else:
-        pp.blit_center(pp.mo_image, pp.find_coord(mvcnt_coord))
+        pp.blit_center(pp.mo_image, pp.find_coord(pp.mvcnt_coord))
         pygame.display.update()
         mvcnt = 5
 

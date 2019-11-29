@@ -74,6 +74,7 @@ arrow_g_image = pygame.image.load("images/arrow_g.png")
 
 
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
+mvcnt_coord = (0, 130)
 
 haitai_list = [0, haitai_1_image, haitai_2_image, haitai_3_image, haitai_4_image]
 dokabi_list = [0, dokabi_1_image, dokabi_2_image, dokabi_3_image, dokabi_4_image]
@@ -166,6 +167,23 @@ def eggarrow(user):
 
     return choose_list
 
+def print_mvcnt(mvcnt):
+    if mvcnt == 1:
+        blit_center(do_image, find_coord(mvcnt_coord))
+        pygame.display.update()
+    elif mvcnt == 2:
+        blit_center(gae_image, find_coord(mvcnt_coord))
+        pygame.display.update()
+    elif mvcnt == 3:
+        blit_center(girl_image, find_coord(mvcnt_coord))
+        pygame.display.update()
+    elif mvcnt == 4:
+        blit_center(yut_image, find_coord(mvcnt_coord))
+        pygame.display.update()
+    else:
+        blit_center(mo_image, find_coord(mvcnt_coord))
+        pygame.display.update()
+        mvcnt = 5
 
 def situation(user1, user2, situ):
     if situ == 'catch' or situ == 'carry' or situ == 'yut' or situ == 'mo':
