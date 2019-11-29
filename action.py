@@ -80,3 +80,5 @@ def actcom(user1, user2):
 
         if user1.fineggno == 4:
             run = False
+
+#def actplay

@@ -78,7 +78,7 @@ while running:
                 MainMenu = False
                 Intro5 = True'''
 
-            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+            if event.type == MOUSEBUTTONUP and event.button == LEFT:
                 pos = pygame.mouse.get_pos()
                 mouse_x = pos[0]
                 mouse_y = pos[1]
@@ -114,7 +114,7 @@ while running:
             if event.type == pygame.QUIT:
                 running = False
 
-            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+            if event.type == MOUSEBUTTONUP and event.button == LEFT:
                 pos = pygame.mouse.get_pos()
                 mouse_x = pos[0]
                 mouse_y = pos[1]
@@ -150,7 +150,7 @@ while running:
 
             if event.type == pygame.QUIT:
                 running = False
-            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+            if event.type == MOUSEBUTTONUP and event.button == LEFT:
                 pos = pygame.mouse.get_pos()
                 mouse_x = pos[0]
                 mouse_y = pos[1]
@@ -167,7 +167,7 @@ while running:
 
             if event.type == pygame.QUIT:
                 running = False
-            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+            if event.type == MOUSEBUTTONUP and event.button == LEFT:
                 pos = pygame.mouse.get_pos()
                 mouse_x = pos[0]
                 mouse_y = pos[1]
@@ -185,7 +185,7 @@ while running:
             if event.type == pygame.QUIT:
                 running = False
 
-            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+            if event.type == MOUSEBUTTONUP and event.button == LEFT:
                 pos = pygame.mouse.get_pos()
                 mouse_x = pos[0]
                 mouse_y = pos[1]
@@ -203,7 +203,7 @@ while running:
 
             if event.type == pygame.QUIT:
                 running = False
-            if event.type == MOUSEBUTTONDOWN and event.button == LEFT:
+            if event.type == MOUSEBUTTONUP and event.button == LEFT:
                 pos = pygame.mouse.get_pos()
                 mouse_x = pos[0]
                 mouse_y = pos[1]
