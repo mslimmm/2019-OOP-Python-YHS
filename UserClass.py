@@ -79,7 +79,7 @@ class Player(User):
         self.imagelist = pp.haitai_list
         self.imagedict = pp.haitai_dict
         self.locdict = pp.g_loc_dict
-        self.image = self.imagelist[1]
+        self.image = pp.haitai_1_image
 
     def wherego(self):
         return yd.playut(self)
@@ -94,7 +94,7 @@ class Computer(User):
         self.imagelist = pp.dokabi_list
         self.imagedict = pp.dokabi_dict
         self.locdict = pp.r_loc_dict
-        self.image = self.imagelist[1]
+        self.image = pp.dokabi_1_image
 
     def wherego(self):
         return yd.comyut()
