@@ -185,6 +185,8 @@ def print_mvcnt(mvcnt):
         pygame.display.update()
         mvcnt = 5
 
+    return mvcnt
+
 def situation(user1, user2, situ):
     if situ == 'catch' or situ == 'carry' or situ == 'yut' or situ == 'mo':
         print_all(user1, user2)

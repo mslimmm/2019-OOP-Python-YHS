@@ -25,7 +25,7 @@ def playut(user):
 
             if sum == 4:
                 pygame.time.delay(500)
-                pp.print_mvcnt(mvcnt)
+                mvcnt = pp.print_mvcnt(mvcnt)
 
                 check += 1
                 break
@@ -49,22 +49,7 @@ def comyut():
         mvcnt += x
 
     pygame.time.delay(500)
-    if mvcnt == 1:
-        pp.blit_center(pp.do_image, pp.find_coord(pp.mvcnt_coord))
-        pygame.display.update()
-    elif mvcnt == 2:
-        pp.blit_center(pp.gae_image, pp.find_coord(pp.mvcnt_coord))
-        pygame.display.update()
-    elif mvcnt == 3:
-        pp.blit_center(pp.girl_image, pp.find_coord(pp.mvcnt_coord))
-        pygame.display.update()
-    elif mvcnt == 4:
-        pp.blit_center(pp.yut_image, pp.find_coord(pp.mvcnt_coord))
-        pygame.display.update()
-    else:
-        pp.blit_center(pp.mo_image, pp.find_coord(pp.mvcnt_coord))
-        pygame.display.update()
-        mvcnt = 5
+    mvcnt = pp.print_mvcnt(mvcnt)
 
     pygame.time.delay(700)
     return mvcnt
