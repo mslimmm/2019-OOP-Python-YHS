@@ -53,10 +53,10 @@ def actuser(moving_egg, user1, user2, movecnt):
         pp.situation(user1, user2, 'carry')
 
     if chk == 0:
-        if movecnt == 4:
+        if movecnt == 4 and user1.fineggno != 4:
             chk = 1
             pp.situation(user1, user2, 'yut')
-        elif movecnt == 5:
+        elif movecnt == 5 and user1.fineggno != 4:
             chk = 1
             pp.situation(user1, user2, 'mo')
 
@@ -127,7 +127,7 @@ def actplay(user1, user2):
                     for eggnum in choose_list:
                         if eggnum == -1:
                                 xsize, ysize = user1.imagelist[4-user1.onmapno-user1.fineggno].get_rect().size
-                                if (320 - xsize / 2 <= mouse_x <= 320 + xsize / 2) and (-230 - ysize / 2 <= mouse_y <= -230 + ysize / 2):
+                                if (336 - xsize / 2 <= mouse_x <= 336 + xsize / 2) and (-230 - ysize / 2 <= mouse_y <= -230 + ysize / 2):
                                     choose = 1
                                     moving_egg = randomlist[0]
 

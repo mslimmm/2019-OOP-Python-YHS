@@ -187,7 +187,7 @@ def eggarrow(user):
         choose_list.append(i)
         blit_center(user.imagedict['arrow'], find_coord((arrow_x, arrow_y + 30)))
     if 4 - user.onmapno - user.fineggno > 0:
-        arrow_x = 320
+        arrow_x = 336
         arrow_y = -150
         choose_list.append(-1)
         blit_center(user.imagedict['arrow'], find_coord((arrow_x, arrow_y - 20)))
