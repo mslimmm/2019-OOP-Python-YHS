@@ -111,7 +111,7 @@ def actplay(user1, user2):
         pygame.display.update()
         pygame.time.delay(500)
         pp.blit_center(user1.imagedict['what'], pp.find_coord((0, 260)))
-        arrow_list = pp.eggarrow(user1)
+        choose_list = pp.eggarrow(user1)
         pygame.display.update()
         choose = 0
         moving_egg = 0
@@ -121,14 +121,19 @@ def actplay(user1, user2):
                     mouse_x, mouse_y = pygame.mouse.get_pos()
                     mouse_x = mouse_x - pp.screen_x / 2
                     mouse_y = pp.screen_y / 2 - mouse_y
-                    for coord in arrow_list:
-                        eggnum, x, y = coord
-                        xsize, ysize = user1.imagedict['arrow'].get_rect().size
-                        if (x - xsize / 2 <= mouse_x <= x + xsize / 2) and (y - ysize / 2 <= mouse_y <= y + ysize / 2):
-                            choose = 1
-                            if eggnum == -1:
-                                moving_egg = randomlist[0]
-                            else:
+                    for eggnum in choose_list:
+                        if eggnum == -1:
+                                xsize, ysize = user1.imagedict['new'].get_rect().size
+                                if (300 - xsize / 2 <= mouse_x <= 300 + xsize / 2) and (0 - ysize / 2 <= mouse_y <= 0 + ysize / 2):
+                                    choose = 1
+                                    moving_egg = randomlist[0]
+
+                        else:
+                            egg = user1.onmap[eggnum]
+                            xsize, ysize = egg.image.get_rect().size
+                            egg_x, egg_y = pp.find_loc(egg.x, egg.y)
+                            if (egg_x - xsize / 2 <= mouse_x <= egg_x + xsize / 2) and (egg_y - ysize / 2 <= mouse_y <= egg_y + ysize / 2):
+                                choose = 1
                                 moving_egg = user1.onmap[eggnum]
 
         run = actuser(moving_egg, user1, user2)

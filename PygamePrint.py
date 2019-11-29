@@ -43,6 +43,7 @@ haitai_carry_image = pygame.image.load("images/haitai_carry_image.png")
 haitai_win_image = pygame.image.load("images/haitai_win_image.png")
 haitai_anykey_image = pygame.image.load("images/haitai_any_key.png")
 haitai_what_image = pygame.image.load("images/haitai_what_image.png")
+haitai_newegg_image = pygame.image.load("images/haitai_newegg.png")
 
 dokabi_1_image = pygame.image.load("images/dokabi_1.png")
 dokabi_2_image = pygame.image.load("images/dokabi_2.png")
@@ -57,6 +58,7 @@ dokabi_carry_image = pygame.image.load("images/dokabi_carry_image.png")
 dokabi_win_image = pygame.image.load("images/dokabi_win_image.png")
 dokabi_anykey_image = pygame.image.load("images/dokabi_any_key.png")
 dokabi_what_image = pygame.image.load("images/dokabi_what_image.png")
+dokabi_newegg_image = pygame.image.load("images/dokabi_newegg.png")
 
 yut_0_image = pygame.image.load("images/yut_0.png")
 yut_1_image = pygame.image.load("images/yut_1.png")
@@ -78,10 +80,12 @@ dokabi_list = [0, dokabi_1_image, dokabi_2_image, dokabi_3_image, dokabi_4_image
 
 haitai_dict = {'first': haitai_first_image, 'turn': haitai_turn_image, 'catch': haitai_catch_image,
                'win': haitai_win_image, 'yut': haitai_yut_again, 'mo': haitai_mo_again, 'carry': haitai_carry_image,
-               'arrow': arrow_g_image, 'anykey': haitai_anykey_image, 'what': haitai_what_image}
+               'arrow': arrow_g_image, 'anykey': haitai_anykey_image, 'what': haitai_what_image,
+               'new': haitai_newegg_image}
 dokabi_dict = {'first': dokabi_first_image, 'turn': dokabi_turn_image, 'catch': dokabi_catch_image,
                'win': dokabi_win_image, 'yut': dokabi_yut_again, 'mo': dokabi_mo_again, 'carry': dokabi_carry_image,
-               'arrow': arrow_r_image, 'anykey': dokabi_anykey_image, 'what': dokabi_what_image}
+               'arrow': arrow_r_image, 'anykey': dokabi_anykey_image, 'what': dokabi_what_image,
+               'new': dokabi_newegg_image}
 
 situ_dict = {'first': (0, 260), 'turn': (0, 0), 'catch': (0, 260), 'win': (0, 0), 'yut': (0, 260), 'mo': (0, 260),
              'carry': (0, 260)}
@@ -148,19 +152,19 @@ def print_all(user1, user2):
 
 
 def eggarrow(user):
-    arrow_list = []
+    choose_list = []
     for i in range(len(user.onmap)):
         egg = user.onmap[i]
         arrow_x, arrow_y = find_loc(egg.x, egg.y)
-        arrow_list.append((i, arrow_x, arrow_y - 20))
-        blit_center(user.imagedict['arrow'], find_coord((arrow_x, arrow_y)))
+        choose_list.append(i)
+        blit_center(user.imagedict['arrow'], find_coord((arrow_x, arrow_y + 30)))
     if 4 - user.onmapno - user.fineggno:
         arrow_x = 300
         arrow_y = 0
-        arrow_list.append((-1, arrow_x, arrow_y))
-        blit_center(user.imagedict['arrow'], find_coord((arrow_x, arrow_y)))
+        choose_list.append(-1)
+        blit_center(user.imagedict['new'], find_coord((arrow_x, arrow_y)))
 
-    return arrow_list
+    return choose_list
 
 
 def situation(user1, user2, situ):
