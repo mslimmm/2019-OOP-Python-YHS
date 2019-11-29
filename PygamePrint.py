@@ -220,6 +220,8 @@ def situation(user1, user2, situ):
     pygame.display.update()
     pygame.time.delay(1000)
     if situ == 'win':
+        print_all(user1, user2)
+        pygame.display.update()
         return
     print_all(user1, user2)
     pygame.display.update()

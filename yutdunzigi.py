@@ -14,7 +14,8 @@ def playut(user):
         for event in pygame.event.get():
             if event.type == pygame.KEYDOWN:
                 print("누름")
-                x = random.randint(0, 1)
+                #x = random.randint(0, 1)
+                x = 1
                 image = pp.yut_0_image
                 if (x == 1):
                     image = pp.yut_1_image
