@@ -72,8 +72,29 @@ back_image = pygame.image.load("images/back.png")
 arrow_r_image = pygame.image.load("images/arrow_r.png")
 arrow_g_image = pygame.image.load("images/arrow_g.png")
 
+g_0 = pygame.image.load("images/G_0.png")
+g_1 = pygame.image.load("images/G_1.png")
+g_2 = pygame.image.load("images/G_2.png")
+g_3 = pygame.image.load("images/G_3.png")
+g_4 = pygame.image.load("images/G_4.png")
+
+r_0 = pygame.image.load("images/R_0.png")
+r_1 = pygame.image.load("images/R_1.png")
+r_2 = pygame.image.load("images/R_2.png")
+r_3 = pygame.image.load("images/R_3.png")
+r_4 = pygame.image.load("images/R_4.png")
+
+line = pygame.image.load("images/line.png")
+
 
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
+
+g_loc_dict = {'score': (-330, 170), 'face': (-330, 250)}
+r_loc_dict = {'score': (330, 170), 'face': (330, 250)}
+
+g_score_list = [g_0, g_1, g_2, g_3, g_4]
+r_score_list = [r_0, r_1, r_2, r_3, r_4]
+
 mvcnt_coord = (0, 130)
 
 haitai_list = [0, haitai_1_image, haitai_2_image, haitai_3_image, haitai_4_image]
@@ -138,6 +159,11 @@ def print_board():
                 image = board_3
             blit_center(image, find_coord(find_loc(i, j)))
 
+def print_score(user1, user2):
+    blit_center(user1.image, find_coord(user1.locdict['face']))
+    blit_center(user2.image, find_coord(user2.locdict['face']))
+    blit_center(user1.scorelist[user1.fineggno], find_coord(user1.locdict['score']))
+    blit_center(user2.scorelist[user2.fineggno], find_coord(user2.locdict['score']))
 
 def print_all(user1, user2):
     user1.carry_image()
@@ -149,6 +175,7 @@ def print_all(user1, user2):
             blit_center(user1.egglist[i].image, find_coord(find_loc(user1.egglist[i].x, user1.egglist[i].y)))
         if user2.egglist[i] in user2.onmap:
             blit_center(user2.egglist[i].image, find_coord(find_loc(user2.egglist[i].x, user2.egglist[i].y)))
+    print_score(user1, user2)
     pygame.display.update()
 
 
