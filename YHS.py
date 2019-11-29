@@ -43,58 +43,31 @@ def play():
     random.shuffle(order)
 
     if order[0] == 'second':
-        pp.blit_center(com1.imagedict['first'], pp.find_coord((0, 260)))
-        pygame.display.update()
-        pygame.time.delay(1000)
-        pp.print_all(com1, play)
-        pygame.display.update()
-
-        pp.blit_center(com1.imagedict['turn'], pp.find_coord((0, 0)))
-        pygame.display.update()
-        pygame.time.delay(1000)
-        pp.print_all(com1, play)
-        pygame.display.update()
+        pp.situation(com1, play, 'first')
+        pp.situation(com1, play, 'turn')
         com1.act(com1, play)
 
     else:
-        pp.blit_center(play.imagedict['first'], pp.find_coord((0, 260)))
-        pygame.display.update()
-        pygame.time.delay(1000)
-        pp.print_all(com1, play)
-        pygame.display.update()
+        pp.situation(play, com1, 'first')
 
     while True:
 
         if com1.fineggno == 4:
-            pp.blit_center(com1.imagedict['win'], pp.find_coord((0, 0)))
-            pygame.display.update()
-            pygame.time.delay(1000)
+            pp.situation(com1, play, 'win')
             break
 
-        pp.blit_center(play.imagedict['turn'], pp.find_coord((0, 0)))
-        pygame.display.update()
-        pygame.time.delay(1000)
-        pp.print_all(play, com1)
-        pygame.display.update()
+        pp.situation(play, com1, 'turn')
         play.act(play, com1)
 
         if play.fineggno == 4:
-            pp.blit_center(play.imagedict['win'], pp.find_coord((0, 0)))
-            pygame.display.update()
-            pygame.time.delay(1000)
+            pp.situation(play, com1, 'win')
             break
 
-        pp.blit_center(com1.imagedict['turn'], pp.find_coord((0, 0)))
-        pygame.display.update()
-        pygame.time.delay(1000)
-        pp.print_all(com1, play)
-        pygame.display.update()
+        pp.situation(com1, play, 'turn')
         com1.act(com1, play)
 
         if com1.fineggno == 4:
-            pp.blit_center(com1.imagedict['win'], pp.find_coord((0, 0)))
-            pygame.display.update()
-            pygame.time.delay(1000)
+            pp.situation(com1, play, 'win')
             break
 
 

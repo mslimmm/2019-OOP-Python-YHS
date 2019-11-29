@@ -45,6 +45,7 @@ def actcom(user1, user2):
             user1.onmapno -= moving_egg.carrying
             user1.fineggno += moving_egg.carrying
 
+        chk = 0
         for i in user2.onmap:
             if i.x == moving_egg.x and i.y == moving_egg.y:
                 i.catched()
@@ -55,20 +56,27 @@ def actcom(user1, user2):
                 user2.onmapno -= 1
                 i.carrying_egg.clear()
                 run = True
-                print(user1.name + "가 말을 잡았습니다!")
+                pp.situation(user1, user2, 'catch')
+                chk = 1
+
+        if chk == 0:
+            if movecnt == 4:
+                chk = 1
+                pp.situation(user1, user2, 'yut')
+            elif movecnt == 5:
+                chk = 1
+                pp.situation(user1, user2, 'mo')
 
         for i in user1.onmap:
             for j in user1.onmap:
                 if i.x == j.x and i.y == j.y and i is not j and i not in j.carrying_egg and j not in i.carrying_egg:
                     user1.make_carry(i,j)
-                    print(user1.name + "가 말을 업었습니다.")
+                    pp.situation(user1, user2, 'carry')
+                    chk = 1
 
-
-        pp.print_all(user1, user2)
-        pygame.time.delay(500)
+        if chk == 0:
+            pp.print_all(user1, user2)
+            pygame.time.delay(1000)
 
         if user1.fineggno == 4:
             run = False
-
-        if run == True:
-            print(user1.name + "가 한번 더 던집니다.")

@@ -68,8 +68,13 @@ anykey_image = pygame.image.load("images/any_key.png")
 yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
 haitai_list = [0, haitai_1_image, haitai_2_image, haitai_3_image, haitai_4_image]
 dokabi_list = [0, dokabi_1_image, dokabi_2_image, dokabi_3_image, dokabi_4_image]
-haitai_dict = {'first': haitai_first_image, 'turn': haitai_turn_image, 'catch': haitai_catch_image, 'win': haitai_win_image, 'yut': haitai_yut_again, 'mo': haitai_mo_again, 'carry': haitai_carry_image}
-dokabi_dict = {'first': dokabi_first_image, 'turn': dokabi_turn_image, 'catch': dokabi_catch_image, 'win': dokabi_win_image, 'yut': dokabi_yut_again, 'mo': dokabi_mo_again, 'carry': dokabi_carry_image}
+haitai_dict = {'first': haitai_first_image, 'turn': haitai_turn_image, 'catch': haitai_catch_image,
+               'win': haitai_win_image, 'yut': haitai_yut_again, 'mo': haitai_mo_again, 'carry': haitai_carry_image}
+dokabi_dict = {'first': dokabi_first_image, 'turn': dokabi_turn_image, 'catch': dokabi_catch_image,
+               'win': dokabi_win_image, 'yut': dokabi_yut_again, 'mo': dokabi_mo_again, 'carry': dokabi_carry_image}
+
+situ_dict = {'first': (0, 260), 'turn': (0, 0), 'catch': (0, 260), 'win': (0, 0), 'yut': (0, 260), 'mo': (0, 260),
+             'carry': (0, 260)}
 
 def blit_center(image, tuple):
     x, y = tuple
@@ -128,4 +133,15 @@ def print_all(user1, user2):
             blit_center(user1.egglist[i].image, find_coord(find_loc(user1.egglist[i].x, user1.egglist[i].y)))
         if user2.egglist[i] in user2.onmap:
             blit_center(user2.egglist[i].image, find_coord(find_loc(user2.egglist[i].x, user2.egglist[i].y)))
+    pygame.display.update()
+
+def situation(user1, user2, situ):
+    if situ == 'catch' or situ == 'carry' or situ == 'yut' or situ == 'mo':
+        pygame.display.update()
+    blit_center(user1.imagedict[situ], find_coord(situ_dict[situ]))
+    pygame.display.update()
+    pygame.time.delay(1000)
+    if situ == 'win':
+        return
+    print_all(user1, user2)
     pygame.display.update()

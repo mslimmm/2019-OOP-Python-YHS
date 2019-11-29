@@ -43,6 +43,7 @@ class player:
                 i.x = self.x
                 i.y = self.y
 
+
         def catched(self):
 
             self.x = 0
