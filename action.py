@@ -43,12 +43,16 @@ def actuser(moving_egg, user1, user2):
             pp.situation(user1, user2, 'catch')
             chk = 1
 
+    ifcarry = 0
     for i in user1.onmap:
         for j in user1.onmap:
             if i.x == j.x and i.y == j.y and i is not j and i not in j.carrying_egg and j not in i.carrying_egg:
                 user1.make_carry(i, j)
-                pp.situation(user1, user2, 'carry')
+                ifcarry = 1
                 chk = 1
+
+    if ifcarry == 1:
+        pp.situation(user1, user2, 'carry')
 
     if chk == 0:
         if movecnt == 4:
