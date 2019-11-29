@@ -140,4 +140,3 @@ def actplay(user1, user2):
                                 moving_egg = user1.onmap[eggnum]
 
         run = actuser(moving_egg, user1, user2, movecnt)
-
