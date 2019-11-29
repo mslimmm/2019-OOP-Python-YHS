@@ -78,7 +78,6 @@ class Player(User):
         self.name = name
         self.imagelist = pp.haitai_list
         self.imagedict = pp.haitai_dict
-        self.scorelist = pp.g_score_list
         self.locdict = pp.g_loc_dict
         self.image = self.imagelist[1]
 
@@ -94,7 +93,6 @@ class Computer(User):
         self.name = name
         self.imagelist = pp.dokabi_list
         self.imagedict = pp.dokabi_dict
-        self.scorelist = pp.r_score_list
         self.locdict = pp.r_loc_dict
         self.image = self.imagelist[1]
 

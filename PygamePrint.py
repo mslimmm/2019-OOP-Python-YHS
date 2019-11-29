@@ -72,17 +72,11 @@ back_image = pygame.image.load("images/back.png")
 arrow_r_image = pygame.image.load("images/arrow_r.png")
 arrow_g_image = pygame.image.load("images/arrow_g.png")
 
-g_0 = pygame.image.load("images/G_0.png")
-g_1 = pygame.image.load("images/G_1.png")
-g_2 = pygame.image.load("images/G_2.png")
-g_3 = pygame.image.load("images/G_3.png")
-g_4 = pygame.image.load("images/G_4.png")
-
-r_0 = pygame.image.load("images/R_0.png")
-r_1 = pygame.image.load("images/R_1.png")
-r_2 = pygame.image.load("images/R_2.png")
-r_3 = pygame.image.load("images/R_3.png")
-r_4 = pygame.image.load("images/R_4.png")
+s_0 = pygame.image.load("images/S_0.png")
+s_1 = pygame.image.load("images/S_1.png")
+s_2 = pygame.image.load("images/S_2.png")
+s_3 = pygame.image.load("images/S_3.png")
+s_4 = pygame.image.load("images/S_4.png")
 
 line = pygame.image.load("images/line.png")
 
@@ -92,8 +86,7 @@ yut_loc = [(-200, 0), (-100, 0), (100, 0), (200, 0)]
 g_loc_dict = {'score': (330, 170), 'face': (330, 250)}
 r_loc_dict = {'score': (-330, 170), 'face': (-330, 250)}
 
-g_score_list = [g_0, g_1, g_2, g_3, g_4]
-r_score_list = [r_0, r_1, r_2, r_3, r_4]
+score_list = [s_0, s_1, s_2, s_3, s_4]
 
 mvcnt_coord = (0, 130)
 
@@ -162,8 +155,8 @@ def print_board():
 def print_score(user1, user2):
     blit_center(user1.image, find_coord(user1.locdict['face']))
     blit_center(user2.image, find_coord(user2.locdict['face']))
-    blit_center(user1.scorelist[user1.fineggno], find_coord(user1.locdict['score']))
-    blit_center(user2.scorelist[user2.fineggno], find_coord(user2.locdict['score']))
+    blit_center(score_list[user1.fineggno], find_coord(user1.locdict['score']))
+    blit_center(score_list[user2.fineggno], find_coord(user2.locdict['score']))
 
 def print_all(user1, user2):
     user1.carry_image()
