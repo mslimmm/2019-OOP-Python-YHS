@@ -30,7 +30,7 @@ pygame : 윷놀이 판을 플레이어들이 볼 수 있도록 시각화해주�
 임민서 : Pygame을 통해 현재 윷놀이 상황을 출력 <br>
 
 ## 9. 기타
-
+mainboard.py를 실행시켜서 게임을 시작할 수 있다.
 <hr>
 
 #### readme 작성관련 참고하기 [바로가기](https://heropy.blog/2017/09/30/markdown/)
