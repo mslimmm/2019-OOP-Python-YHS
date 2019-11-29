@@ -4,11 +4,11 @@ import random
 
 mvcnt_coord = (0, 130)
 
-def playut():
+def playut(user):
     sum = 0
     mvcnt = 0
     running = True
-    pp.blit_center(pp.anykey_image, pp.find_coord((0, 260)))
+    pp.blit_center(user.imagedict['anykey'], pp.find_coord((0, 260)))
     pygame.display.update()
     pygame.event.clear()
     while running:

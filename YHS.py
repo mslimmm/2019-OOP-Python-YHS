@@ -36,7 +36,7 @@ def play():
     com1 = UserClass.Computer('컴퓨터')
     play = UserClass.Player('플레이어')
 
-    pp.print_all(com1, play)
+    pp.print_all(play, com1)
     pygame.display.update()
 
     order = ['first','second']
@@ -45,7 +45,7 @@ def play():
     if order[0] == 'second':
         pp.situation(com1, play, 'first')
         pp.situation(com1, play, 'turn')
-        com1.act(com1, play)
+        com1.act(play)
 
     else:
         pp.situation(play, com1, 'first')
@@ -57,14 +57,15 @@ def play():
             break
 
         pp.situation(play, com1, 'turn')
-        play.act(play, com1)
+        pygame.time.delay(500)
+        play.act(com1)
 
         if play.fineggno == 4:
             pp.situation(play, com1, 'win')
             break
 
         pp.situation(com1, play, 'turn')
-        com1.act(com1, play)
+        com1.act(play)
 
         if com1.fineggno == 4:
             pp.situation(com1, play, 'win')

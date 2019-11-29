@@ -81,10 +81,10 @@ class Player(User):
         self.image = self.imagelist[1]
 
     def wherego(self):
-        return yd.playut()
+        return yd.playut(self)
 
-    def act(self, user1, user2):# 임시로 자동이동으로 함
-        action.actcom(user1, user2)
+    def act(self, user2):# 임시로 자동이동으로 함
+        action.actplay(self, user2)
 
 class Computer(User):
     def __init__(self, name):
@@ -97,5 +97,5 @@ class Computer(User):
     def wherego(self):
         return yd.comyut()
 
-    def act(self, user1, user2):
-        action.actcom(user1, user2)
+    def act(self, user2):
+        action.actcom(self, user2)
