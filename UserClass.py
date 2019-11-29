@@ -18,8 +18,6 @@ class User:
                 self.x = -1
             elif self.x == 2 and self.y == 0:
                 self.x = -2
-            elif self.x == -1 and self.y == 3:
-                self.x = -2
 
             for i in range(movecnt):
                 self.y += 1
@@ -35,6 +33,9 @@ class User:
 
                 if self.x == 4 and self.y > 0:
                     break
+            
+            if self.x == -1 and self.y == 3:
+                self.x = -2
 
             for i in self.carrying_egg:
                 i.x = self.x

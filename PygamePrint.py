@@ -137,7 +137,9 @@ def print_all(user1, user2):
 
 def situation(user1, user2, situ):
     if situ == 'catch' or situ == 'carry' or situ == 'yut' or situ == 'mo':
+        print_all(user1, user2)
         pygame.display.update()
+        pygame.time.delay(500)
     blit_center(user1.imagedict[situ], find_coord(situ_dict[situ]))
     pygame.display.update()
     pygame.time.delay(1000)

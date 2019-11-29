@@ -59,6 +59,13 @@ def actcom(user1, user2):
                 pp.situation(user1, user2, 'catch')
                 chk = 1
 
+        for i in user1.onmap:
+            for j in user1.onmap:
+                if i.x == j.x and i.y == j.y and i is not j and i not in j.carrying_egg and j not in i.carrying_egg:
+                    user1.make_carry(i,j)
+                    pp.situation(user1, user2, 'carry')
+                    chk = 1
+
         if chk == 0:
             if movecnt == 4:
                 chk = 1
@@ -66,13 +73,6 @@ def actcom(user1, user2):
             elif movecnt == 5:
                 chk = 1
                 pp.situation(user1, user2, 'mo')
-
-        for i in user1.onmap:
-            for j in user1.onmap:
-                if i.x == j.x and i.y == j.y and i is not j and i not in j.carrying_egg and j not in i.carrying_egg:
-                    user1.make_carry(i,j)
-                    pp.situation(user1, user2, 'carry')
-                    chk = 1
 
         if chk == 0:
             pp.print_all(user1, user2)
