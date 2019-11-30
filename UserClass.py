@@ -86,6 +86,7 @@ class User:
 class Player(User):
     def __init__(self, char):
         super().__init__(char)
+        self.winsound = pp.yay
 
     def wherego(self):
         return yd.playut(self)
@@ -96,6 +97,7 @@ class Player(User):
 class Computer(User):
     def __init__(self, char):
         super().__init__(char)
+        self.winsound = pp.los
 
     def wherego(self):
         return yd.comyut()
