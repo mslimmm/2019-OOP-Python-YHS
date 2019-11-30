@@ -6,11 +6,16 @@ import sys
 import YHS
 os.environ['SDL_VIDEO_CENTERED'] = '0'
 
+
 pygame.init()
 pygame.display.set_caption("main")
 screen_x = 800
 screen_y = 600
 screen = pygame.display.set_mode((screen_x, screen_y))
+
+pygame.mixer.music.load("sounds/bgm.mp3")
+pygame.mixer.music.set_volume(0.2)
+pygame.mixer.music.play(-1, 0.0)
 
 game_start = pygame.image.load("images/game_start.png")
 game_intro = pygame.image.load("images/game_introduction.png")
@@ -52,7 +57,10 @@ spot_zapgi_upgi = pp.find_coord((0, -150))
 spot_backspace = pp.find_coord((350, 275))
 
 def IsReal(pos, spot_coord, xsize, ysize):
-    return -xsize/2 < pos[0] - spot_coord[0] < xsize/2 and -ysize/2 < pos[1] - spot_coord[1] < ysize/2
+    chk = -xsize/2 < pos[0] - spot_coord[0] < xsize/2 and -ysize/2 < pos[1] - spot_coord[1] < ysize/2
+    if chk:
+        pp.sel.play()
+    return chk
 LEFT = 1
 RIGHT = 3
 cnt = 0

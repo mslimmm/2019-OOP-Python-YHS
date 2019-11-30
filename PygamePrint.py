@@ -21,9 +21,15 @@ pygame.mixer.init()
 
 yut = pygame.mixer.Sound("sounds/yut.wav")
 catch = pygame.mixer.Sound("sounds/Scream10.ogg")
+yay = pygame.mixer.Sound("sounds/yay.ogg")
+sel = pygame.mixer.Sound("sounds/sel.ogg")
+car = pygame.mixer.Sound("sounds/car.ogg")
 
-yut.set_volume(0.5)
-catch.set_volume(0.5)
+yut.set_volume(1.0)
+catch.set_volume(1.0)
+yay.set_volume(1.0)
+sel.set_volume(1.0)
+car.set_volume(1.0)
 
 screen_x = 800
 screen_y = 600
@@ -222,9 +228,13 @@ def situation(user1, user2, situ):
     if situ == 'catch' or situ == 'carry' or situ == 'yut' or situ == 'mo':
         print_all(user1, user2)
         pygame.display.update()
+        if situ == 'carry':
+            car.play()
         pygame.time.delay(500)
     blit_center(user1.imagedict[situ], find_coord(situ_dict[situ]))
     pygame.display.update()
+    if situ == 'win':
+        yay.play()
     pygame.time.delay(1000)
     print_all(user1, user2)
     pygame.display.update()
