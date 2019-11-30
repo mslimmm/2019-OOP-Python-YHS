@@ -54,13 +54,24 @@ class User:
                 i.carrying_egg.clear()
 
 
-    def __init__(self):
+    def __init__(self, char):
         self.egglist = [self.egg(), self.egg(), self.egg(), self.egg()]
         self.onmap = []
         self.onmapno = 0
         self.finegg = []
         self.fineggno = 0
-        #
+        if char == 0:
+            self.imagelist = pp.haitai_list
+            self.imagedict = pp.haitai_dict
+            self.locdict = pp.g_loc_dict
+            self.image = pp.haitai_1_image
+        elif char == 1:
+            self.imagelist = pp.dokabi_list
+            self.imagedict = pp.dokabi_dict
+            self.locdict = pp.r_loc_dict
+            self.image = pp.dokabi_1_image
+
+
 
     def make_carry(self,egg1,egg2):
         egg1.carrying_egg.append(egg2)
@@ -73,13 +84,8 @@ class User:
             egg.image = self.imagelist[egg.carrying]
 
 class Player(User):
-    def __init__(self, name):
-        super().__init__()
-        self.name = name
-        self.imagelist = pp.haitai_list
-        self.imagedict = pp.haitai_dict
-        self.locdict = pp.g_loc_dict
-        self.image = pp.haitai_1_image
+    def __init__(self, char):
+        super().__init__(char)
 
     def wherego(self):
         return yd.playut(self)
@@ -88,13 +94,8 @@ class Player(User):
         action.actplay(self, user2)
 
 class Computer(User):
-    def __init__(self, name):
-        super().__init__()
-        self.name = name
-        self.imagelist = pp.dokabi_list
-        self.imagedict = pp.dokabi_dict
-        self.locdict = pp.r_loc_dict
-        self.image = pp.dokabi_1_image
+    def __init__(self, char):
+        super().__init__(char)
 
     def wherego(self):
         return yd.comyut()

@@ -32,42 +32,43 @@ os.environ['SDL_VIDEO_CENTERED'] = '0'
 
 pygame.display.set_caption("YUT")
 
-def play():
-    com1 = UserClass.Computer('컴퓨터')
-    play = UserClass.Player('플레이어')
+user1 = UserClass.Computer(1)
+user2 = UserClass.Player(0)
 
-    pp.print_all(play, com1)
+def play():
+
+    pp.print_all(user2, user1)
     pygame.display.update()
 
     order = ['first','second']
     random.shuffle(order)
 
     if order[0] == 'second':
-        pp.situation(com1, play, 'first')
-        pp.situation(com1, play, 'turn')
-        com1.act(play)
+        pp.situation(user1, user2, 'first')
+        pp.situation(user1, user2, 'turn')
+        user1.act(user2)
 
     else:
-        pp.situation(play, com1, 'first')
+        pp.situation(user2, user1, 'first')
 
     while True:
 
-        if com1.fineggno == 4:
-            pp.situation(com1, play, 'win')
+        if user1.fineggno == 4:
+            pp.situation(user1, user2, 'win')
             break
 
-        pp.situation(play, com1, 'turn')
-        play.act(com1)
+        pp.situation(user2, user1, 'turn')
+        user2.act(user1)
 
-        if play.fineggno == 4:
-            pp.situation(play, com1, 'win')
+        if user2.fineggno == 4:
+            pp.situation(user2, user1, 'win')
             break
 
-        pp.situation(com1, play, 'turn')
-        com1.act(play)
+        pp.situation(user1, user2, 'turn')
+        user1.act(user2)
 
-        if com1.fineggno == 4:
-            pp.situation(com1, play, 'win')
+        if user1.fineggno == 4:
+            pp.situation(user1, user2, 'win')
             break
 
 
