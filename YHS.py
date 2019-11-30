@@ -1,6 +1,5 @@
 import pygame
 import random
-import PlayerClass
 import PygamePrint as pp
 import UserClass
 import os

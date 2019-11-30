@@ -1,3 +1,6 @@
+import pygame
+pygame.mixer.init()
+
 """
 (2,0)   (1,4)   (1,3)   (1,2)   (1,1)   (1,0)
 
@@ -15,9 +18,6 @@
 
 (3,0)   (3,1)   (3,2)   (3,3)   (3,4)   (0,0) (4,0)
 """
-
-import pygame
-pygame.mixer.init()
 
 yut = pygame.mixer.Sound("sounds/yut.wav")
 catch = pygame.mixer.Sound("sounds/Scream10.ogg")
@@ -118,6 +118,7 @@ def blit_center(image, tuple):
     x, y = tuple
     xsize, ysize = image.get_rect().size
     screen.blit(image, (x-xsize/2, y-ysize/2))
+
 
 def find_loc(x, y):
     if x == 0:
