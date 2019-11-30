@@ -135,10 +135,16 @@ while running:
                 xsize, ysize = pp.cvc_image.get_rect().size
                 if IsReal(pos, spot_cvc, xsize, ysize):
                     YHS.play(0)
+                    ModeSelect = False
+                    MainMenu = True
                 elif IsReal(pos, spot_pvc, xsize, ysize):
                     YHS.play(1)
+                    ModeSelect = False
+                    MainMenu = True
                 elif IsReal(pos, spot_pvp, xsize, ysize):
                     YHS.play(2)
+                    ModeSelect = False
+                    MainMenu = True
                 elif IsReal(pos, spot_backspace, 100, 50):
                     ModeSelect = False
                     MainMenu = True
