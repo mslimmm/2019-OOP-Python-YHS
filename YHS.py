@@ -32,10 +32,16 @@ os.environ['SDL_VIDEO_CENTERED'] = '0'
 
 pygame.display.set_caption("YUT")
 
-user1 = UserClass.Computer(1)
-user2 = UserClass.Player(0)
-
-def play():
+def play(mode):
+    if mode == 0:
+        user1 = UserClass.Computer(0)
+        user2 = UserClass.Computer(1)
+    if mode == 1:
+        user1 = UserClass.Player(0)
+        user2 = UserClass.Computer(1)
+    if mode == 2:
+        user1 = UserClass.Player(0)
+        user2 = UserClass.Player(1)
 
     pp.print_all(user2, user1)
     pygame.display.update()

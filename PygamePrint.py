@@ -74,6 +74,10 @@ yut_image = pygame.image.load("images/yut.png")
 mo_image = pygame.image.load("images/mo.png")
 back_image = pygame.image.load("images/back.png")
 
+cvc_image = pygame.image.load("images/CVC.png")
+pvc_image = pygame.image.load("images/PVC.png")
+pvp_image = pygame.image.load("images/PVP.png")
+
 arrow_r_image = pygame.image.load("images/arrow_r.png")
 arrow_g_image = pygame.image.load("images/arrow_g.png")
 
