@@ -24,6 +24,7 @@ sem_board = pygame.image.load("images/sem_board.png")
 zapgi_upgi_board = pygame.image.load("images/zapgi_upgi_board.png")
 name = pygame.image.load("images/name.png")
 backspace = pygame.image.load("images/backspace.png")
+mode_image = pygame.image.load("images/mode.png")
 
 '''
 screen.fill((255, 255, 255))
@@ -43,6 +44,7 @@ spot_gi = pp.find_coord((0, -200))
 spot_cvc = pp.find_coord((-230, 0))
 spot_pvc = pp.find_coord((0, 0))
 spot_pvp = pp.find_coord((230, 0))
+spot_mode = pp.find_coord((0, 240))
 spot_gaeyo = pp.find_coord((0, 150))
 spot_sem = pp.find_coord((0, 50))
 spot_malpan = pp.find_coord((0, -50))
@@ -106,10 +108,11 @@ while running:
 
     if ModeSelect:
         screen.fill((255, 204, 102))
-        pp.blit_center(backspace, pp.find_coord((350, 275)))
         pp.blit_center(pp.cvc_image, spot_cvc)
         pp.blit_center(pp.pvc_image, spot_pvc)
         pp.blit_center(pp.pvp_image, spot_pvp)
+        pp.blit_center(mode_image, spot_mode)
+        pp.blit_center(backspace, pp.find_coord((350, 275)))
         pygame.display.update()
         for event in pygame.event.get():
 
