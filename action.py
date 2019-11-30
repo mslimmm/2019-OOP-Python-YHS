@@ -109,11 +109,10 @@ def actplay(user1, user2):
 
         pp.print_all(user1, user2)
         pygame.display.update()
-        pygame.time.delay(500)
         choose = 0
         moving_egg = 0
         movecnt = user1.wherego()
-        pygame.time.delay(500)
+        pygame.time.delay(300)
         pp.print_all(user1, user2)
         pp.print_mvcnt(movecnt)
         pp.blit_center(user1.imagedict['what'], pp.find_coord((0, 260)))

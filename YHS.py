@@ -57,7 +57,6 @@ def play():
             break
 
         pp.situation(play, com1, 'turn')
-        pygame.time.delay(500)
         play.act(com1)
 
         if play.fineggno == 4:
