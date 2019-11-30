@@ -18,8 +18,10 @@
 
 import pygame
 pygame.mixer.init()
+
 yut = pygame.mixer.Sound("sounds/yut.wav")
 catch = pygame.mixer.Sound("sounds/Scream10.ogg")
+
 yut.set_volume(0.5)
 catch.set_volume(0.5)
 
